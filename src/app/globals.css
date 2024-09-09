@@ -18,6 +18,37 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  margin: 2 rem;
+}
+
+nav {
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #8f0606; /* Dark background color for the nav */
+  padding: 1rem 0; /* Adds padding to top and bottom of the nav */
+}
+nav ul li {
+  display: inline-block;
+}
+a {
+  padding: 1rem;
+}
+
+.card {
+  width: 200px;
+  height: 150px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 @layer utilities {
