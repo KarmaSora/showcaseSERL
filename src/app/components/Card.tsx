@@ -1,22 +1,26 @@
 import React from 'react'
-const karam = require('fs')
 
 interface Prop {
   cardTitle: string
-  cardDescribtion: string
+  cardDescription: string
   cardTags: string[]
   cardImageURL: string
 }
-function Card({ cardTitle, cardDescribtion, cardTags, cardImageURL }: Prop) {
+
+function Card({ cardTitle, cardDescription, cardTags, cardImageURL }: Prop) {
   return (
-    <>
-      <section className='cards'>
-        <h1> the card: {cardTitle}</h1>
-        <p>{cardDescribtion}</p>
-        <h3>{cardTags}</h3>
-        <img src={cardImageURL} alt='card' />
-      </section>
-    </>
+    <section className='card'>
+      <img src={cardImageURL} alt='card' className='card-image' />
+      <h1 className='card-title'>{cardTitle}</h1>
+      <p className='card-description'>{cardDescription}</p>
+      <ul className='card-tags'>
+        {cardTags.map((tag, index) => (
+          <li key={index} className='tag'>
+            {tag}
+          </li>
+        ))}
+      </ul>
+    </section>
   )
 }
 

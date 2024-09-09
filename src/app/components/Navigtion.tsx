@@ -1,22 +1,23 @@
-// PascalCase
-'use client'
-function Naviagtion() {
-  let items = ['A Item', 'Second item', 'third Item', 'Gear 5', 'One Piece']
+import Link from 'next/link'
 
+// PascalCase
+function Naviagtion() {
   return (
     <>
-      <h1> here starts the naviagtion component</h1>
-      <nav>
-        <ul>
-          <li>
-            <a href='/'> home page</a>
-          </li>
-          <li>
-            <a href='/users'> users page</a>
-          </li>
-        </ul>
-      </nav>
-      <h1> here ends the naviagtion component</h1>
+      <section className='divide-y divide-gray-200 '>
+        <h1> here starts the naviagtion component</h1>
+        <nav>
+          <ul>
+            <li>
+              <Link href='/'> home page</Link>
+            </li>
+            <li>
+              <Link href='/users'> users page</Link>
+            </li>
+          </ul>
+        </nav>
+        <h1> here ends the naviagtion component</h1>
+      </section>
     </>
   )
 }
