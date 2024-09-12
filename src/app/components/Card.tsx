@@ -1,4 +1,3 @@
-
 interface Prop {
   cardTitle: string
   cardDescription: string

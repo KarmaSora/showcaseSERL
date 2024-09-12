@@ -1,20 +1,20 @@
-import fs from 'fs';
-import path from 'path';
-import Card from './Card';
+import fs from 'fs'
+import path from 'path'
+import Card from './Card'
 
 interface ResearchData {
-  cardTitle: string;
-  cardDescription: string;
-  cardTags: string[];
-  cardImageURL: string;
+  cardTitle: string
+  cardDescription: string
+  cardTags: string[]
+  cardImageURL: string
 }
 
 const Container = () => {
   // Define the path to your JSON file
-  const jsonFilePath = path.join(process.cwd(), 'data', 'research.json');
-  
+  const jsonFilePath = path.join(process.cwd(), 'data', 'research.json')
+
   // Read the JSON file during build time
-  const data: ResearchData[] = JSON.parse(fs.readFileSync(jsonFilePath, 'utf8'));
+  const data: ResearchData[] = JSON.parse(fs.readFileSync(jsonFilePath, 'utf8'))
 
   return (
     <div>
@@ -28,7 +28,7 @@ const Container = () => {
         />
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default Container;
+export default Container
