@@ -3,6 +3,7 @@ import path from 'path'
 import Card from './Card'
 
 interface ResearchData {
+  cardResearchType: string
   cardTitle: string
   cardDescription: string
   cardTags: string[]
@@ -21,6 +22,7 @@ const Container = () => {
       {data.map((item, index) => (
         <Card
           key={index}
+          cardResearchType={item.cardResearchType}
           cardTitle={item.cardTitle}
           cardDescription={item.cardDescription}
           cardTags={item.cardTags}

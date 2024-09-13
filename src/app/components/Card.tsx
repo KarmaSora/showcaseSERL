@@ -1,13 +1,21 @@
 interface Prop {
+  cardResearchType: string
   cardTitle: string
   cardDescription: string
   cardTags: string[]
   cardImageURL: string
 }
 
-function Card({ cardTitle, cardDescription, cardTags, cardImageURL }: Prop) {
+function Card({
+  cardResearchType,
+  cardTitle,
+  cardDescription,
+  cardTags,
+  cardImageURL,
+}: Prop) {
   return (
     <section className='card'>
+      <p className='card-description'>cardResearchType: {cardResearchType}</p>
       <img src={cardImageURL} alt='card' className='card-image' />
       <h1 className='card-title'>{cardTitle}</h1>
       <p className='card-description'>{cardDescription}</p>
