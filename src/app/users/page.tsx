@@ -6,6 +6,7 @@ function HOME() {
       <Header />
       <h1>Welcome to hell User..</h1>
       <Card
+        cardResearchType=' certain user type'
         cardTitle={'Sun God Nika'}
         cardDescription={
           'Son God Nika, AKA JOYBOY, a fictinal character created by Ichiro Oda, AKA GODA. '
