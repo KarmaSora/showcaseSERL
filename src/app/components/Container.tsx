@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import Card from './Card'
+import CardDisplay from './CardDisplay'
 
 interface ResearchData {
   cardResearchType: string
@@ -10,25 +10,20 @@ interface ResearchData {
   cardImageURL: string
 }
 
-const Container = () => {
-  // Define the path to your JSON file
-  const jsonFilePath = path.join(process.cwd(), 'data', 'research.json')
+export const revalidate = 60 // Next.js will regenerate the page every 60 seconds
 
-  // Read the JSON file during build time
-  const data: ResearchData[] = JSON.parse(fs.readFileSync(jsonFilePath, 'utf8'))
+// Server Component (default in the app directory)
+const Container = async () => {
+  // Fetch the data directly inside the component
+  const jsonFilePath = path.join(process.cwd(), 'data', 'research.json')
+  const researchCards: ResearchData[] = JSON.parse(
+    fs.readFileSync(jsonFilePath, 'utf8')
+  )
 
   return (
     <div>
-      {data.map((item, index) => (
-        <Card
-          key={index}
-          cardResearchType={item.cardResearchType}
-          cardTitle={item.cardTitle}
-          cardDescription={item.cardDescription}
-          cardTags={item.cardTags}
-          cardImageURL={item.cardImageURL}
-        />
-      ))}
+      {/* Pass the researchCards to the client-side CardDisplay component */}
+      <CardDisplay researchCards={researchCards} />
     </div>
   )
 }
