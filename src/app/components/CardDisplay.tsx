@@ -1,5 +1,6 @@
 'use client' // Client component
 
+import React from 'react'
 import { useState } from 'react'
 import Card from './Card'
 
