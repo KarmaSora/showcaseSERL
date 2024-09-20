@@ -46,14 +46,15 @@ const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
   })
 
   return (
-    <div>
+    <>
       {/* Dropdown for filtering by cardResearchType */}
-      <select value={selectedType} onChange={handleTypeChange}>
-        <option value='All'>All</option>
-        <option value='student'>Student</option>
-        <option value='teacher'>Teacher</option>
-      </select>
-
+      <section className='typeChangeSelection'>
+        <select value={selectedType} onChange={handleTypeChange}>
+          <option value='All'>All</option>
+          <option value='student'>Student</option>
+          <option value='teacher'>Teacher</option>
+        </select>
+      </section>
       {/* Input field to type the filter text (title, description, tags) */}
       <input
         type='text'
@@ -61,11 +62,11 @@ const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
         value={inputText}
         onChange={handleInputChange}
       />
-
       {/* Button to trigger the filtering */}
       <button>Filter</button>
-
       {/* Display final filtered research cards */}
+      {/* Display filtered data length, aka, card count */}
+      <h2>Number of filtered data found: {finalFilteredCards.length}</h2>
       <div>
         {finalFilteredCards.length > 0 ? (
           finalFilteredCards.map((card, index) => (
@@ -82,7 +83,7 @@ const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
           <p>No results found</p>
         )}
       </div>
-    </div>
+    </>
   )
 }
 
