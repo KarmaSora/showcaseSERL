@@ -1,7 +1,7 @@
 'use client' // Client component
 
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Card from './Card'
 
 interface ResearchData {
@@ -15,6 +15,8 @@ interface ResearchData {
 const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
   const [inputText, setInputText] = useState('') // Track input text for filtering by title/description/tags
   const [selectedType, setSelectedType] = useState('All') // Track the selected cardResearchType
+
+  const [loadingBool, setLoadingBoolState] = useState(true)
 
   // Handle user input for text filtering (title, description, tags)
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,6 +46,15 @@ const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
 
     return matchesTitleOrDescription || matchesTags // Return true if matches title, description, or any tag
   })
+
+  useEffect(() => {
+    if (researchCards && researchCards.length > 0) {
+      setLoadingBoolState(false)
+    }
+  }, [researchCards])
+  if (loadingBool) {
+    return <h2>Loading...</h2> // Replace with a spinner or loading animation
+  }
 
   return (
     <>

@@ -2,8 +2,6 @@ import { promises as fs } from 'fs'
 import path from 'path'
 import CardDisplay from './CardDisplay'
 
-import { json } from 'stream/consumers'
-
 interface ResearchData {
   cardResearchType: string
   cardTitle: string
