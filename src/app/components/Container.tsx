@@ -8,6 +8,8 @@ interface ResearchData {
   cardDescription: string
   cardTags: string[]
   cardImageURL: string
+  id: string
+  cardDate: string
 }
 
 export const revalidate = 60 // Next.js will regenerate the page every 60 seconds
