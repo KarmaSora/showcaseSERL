@@ -5,11 +5,13 @@ import { useState, useEffect } from 'react'
 import Card from './Card'
 
 interface ResearchData {
+  id: string
   cardResearchType: string
   cardTitle: string
   cardDescription: string
   cardTags: string[]
   cardImageURL: string
+  cardDate: string
 }
 
 const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
@@ -88,6 +90,8 @@ const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
               cardDescription={card.cardDescription}
               cardTags={card.cardTags}
               cardImageURL={card.cardImageURL}
+              cardDate={card.cardDate}
+              id={card.id}
             />
           ))
         ) : (
