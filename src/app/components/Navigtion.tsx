@@ -11,9 +11,6 @@ function Naviagtion() {
             <li>
               <Link href='/'> home page</Link>
             </li>
-            <li>
-              <Link href='/users'> users page</Link>
-            </li>
           </ul>
         </nav>
         <h1> here ends the naviagtion component</h1>
