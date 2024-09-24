@@ -2,6 +2,7 @@ import path from 'path'
 import fs from 'fs/promises'
 import Card from '../../components/Card'
 import { notFound } from 'next/navigation'
+import Naviagtion from '@/app/components/Navigtion'
 
 interface CardData {
   id: string
@@ -54,7 +55,9 @@ export default async function SingleCardPage({
 
   // Render the card component with the fetched data
   return (
-    <div>
+    <>
+      <Naviagtion />
+
       <Card
         id={card.id}
         cardTitle={card.cardTitle}
@@ -64,6 +67,6 @@ export default async function SingleCardPage({
         cardResearchType={card.cardResearchType}
         cardDate={card.date} // Pass the date to the Card component
       />
-    </div>
+    </>
   )
 }
