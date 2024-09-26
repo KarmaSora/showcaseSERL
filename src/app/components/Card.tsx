@@ -6,7 +6,7 @@ interface Prop {
   cardDescription: string
   cardTags: string[]
   cardImageURL: string
-  cardDate: string
+  date: string
   id: string
 }
 
@@ -16,7 +16,7 @@ function Card({
   cardDescription,
   cardTags,
   cardImageURL,
-  cardDate,
+  date,
   id,
 }: Prop) {
   return (
@@ -25,7 +25,7 @@ function Card({
       <img src={cardImageURL} alt='card' className='card-image' />
       <h1 className='card-title'>{cardTitle}</h1>
       <p className='card-description'>{cardDescription}</p>
-      <p className='card-date'>Date: {cardDate}</p>
+      <p className='card-date'>Date: {date}</p>
       <ul className='card-tags'>
         {cardTags.map((tag, index) => (
           <li key={index} className='tag'>

@@ -11,7 +11,7 @@ interface ResearchData {
   cardDescription: string
   cardTags: string[]
   cardImageURL: string
-  cardDate: string
+  date: string
 }
 
 const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
@@ -90,7 +90,7 @@ const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
               cardDescription={card.cardDescription}
               cardTags={card.cardTags}
               cardImageURL={card.cardImageURL}
-              cardDate={card.cardDate}
+              date={card.date}
               id={card.id}
             />
           ))
