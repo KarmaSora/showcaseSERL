@@ -1,39 +1,50 @@
 import Link from 'next/link'
 
 interface Prop {
-  cardResearchType: string
-  cardTitle: string
-  cardDescription: string
-  cardTags: string[]
-  cardImageURL: string
+  researchType: string
+  title: string
+  description: string
+  tags: string[]
+  screenshots: string[]
   date: string
   id: string
 }
 
 function Card({
-  cardResearchType,
-  cardTitle,
-  cardDescription,
-  cardTags,
-  cardImageURL,
+  researchType,
+  title,
+  description,
+  tags,
+  screenshots,
   date,
   id,
 }: Prop) {
+  let trimmedDescription = ''
+  if (description.length > 100) {
+    trimmedDescription = description.substring(0, 100) + '...'
+  }
+  if (description.length < 100) {
+    trimmedDescription = description.padEnd(103, '')
+  }
   return (
     <section className='card'>
-      <p className='card-description'>cardResearchType: {cardResearchType}</p>
-      <img src={cardImageURL} alt='card' className='card-image' />
-      <h1 className='card-title'>{cardTitle}</h1>
-      <p className='card-description'>{cardDescription}</p>
+      <p className='card-type'>cardResearchType: {researchType}</p>
+
+      <img src={screenshots[0]} alt='an image' className='card-image' />
+      <h1 className='card-title'>{title}</h1>
+      <p className='card-description'>{trimmedDescription}</p>
       <p className='card-date'>Date: {date}</p>
       <ul className='card-tags'>
-        {cardTags.map((tag, index) => (
+        {tags.map((tag, index) => (
           <li key={index} className='tag'>
             {tag}
           </li>
         ))}
-        <Link href={`/card/${id}`}> Go HERE! </Link>
       </ul>
+      <Link href={`/card/${id}`} className='cardURL'>
+        {' '}
+        Go HERE!{' '}
+      </Link>
     </section>
   )
 }

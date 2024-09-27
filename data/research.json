@@ -2,82 +2,102 @@
   {
     "id": "1",
     "date": "2023-10-01",
-    "cardResearchType": "teacher",
-    "cardTitle": "testing Title change",
-    "cardDescription": "Card Describtion: An anime about the main antagonist to the famous sherlock holmes franchies. William James Moriaty, a criminal mastermind who leads those in need to seek their revenge on those who misstreated them.",
-    "cardTags": ["test", "coding", "software"],
-    "cardImageURL": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1abdd662-ebac-46f8-af26-92ffc3f65a77/dhlfsbl-61849d21-bf50-478d-b6b9-5a4f1c8f4972.png/v1/fill/w_900,h_507,q_80,strp/moriarty_from_moriarty_the_patriot__minimalist__by_tdn98_dhlfsbl-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTA3IiwicGF0aCI6IlwvZlwvMWFiZGQ2NjItZWJhYy00NmY4LWFmMjYtOTJmZmMzZjY1YTc3XC9kaGxmc2JsLTYxODQ5ZDIxLWJmNTAtNDc4ZC1iNmI5LTVhNGYxYzhmNDk3Mi5wbmciLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.JjD06AYuh_9KYTkwUwngEDrJqy0yfnbagGtOmnk_RbY"
+    "researchType": "Researcher",
+    "title": "testing Title change",
+    "description": "Card Describtion: An anime about the main antagonist to the famous sherlock holmes franchies. William James Moriaty, a criminal mastermind who leads those in need to seek their revenge on those who misstreated them.",
+    "tags": ["test", "coding", "software", "demo"],
+    "screenshots": [
+      "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1abdd662-ebac-46f8-af26-92ffc3f65a77/dhlfsbl-61849d21-bf50-478d-b6b9-5a4f1c8f4972.png/v1/fill/w_900,h_507,q_80,strp/moriarty_from_moriarty_the_patriot__minimalist__by_tdn98_dhlfsbl-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTA3IiwicGF0aCI6IlwvZlwvMWFiZGQ2NjItZWJhYy00NmY4LWFmMjYtOTJmZmMzZjY1YTc3XC9kaGxmc2JsLTYxODQ5ZDIxLWJmNTAtNDc4ZC1iNmI5LTVhNGYxYzhmNDk3Mi5wbmciLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.JjD06AYuh_9KYTkwUwngEDrJqy0yfnbagGtOmnk_RbY",
+      "data:image/jpeg;base64,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"
+    ]
   },
   {
     "id": "2",
     "date": "2023-10-01",
-    "cardResearchType": "Teacher",
-    "cardTitle": "GO BERSERK",
-    "cardDescription": "Card Describtion V2. Bersek, an old LEGENDARY anime. a world where creatures known as demons exist. The main character, Guts, is known for his great sword and his abillity to slaughter enemies and demons alike. Cursed be demons who try to kill him, Guts goes on and seeks revenge upon them",
-    "cardTags": ["test", "coding", "software"],
-    "cardImageURL": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/352b0361-42e8-4b81-93ec-8016d43171b3/dd62maj-2629ead7-fcfc-4966-98ec-42896fc620a4.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzM1MmIwMzYxLTQyZTgtNGI4MS05M2VjLTgwMTZkNDMxNzFiM1wvZGQ2Mm1hai0yNjI5ZWFkNy1mY2ZjLTQ5NjYtOThlYy00Mjg5NmZjNjIwYTQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.SG7BeFtp5EN2zs8c4mUW1dsn6DNyEUwQTeB3YJZ7vto"
+    "researchType": "Researcher",
+    "projectLink": "url",
+    "title": "GO BERSERK",
+    "description": "Card Describtion V2. Bersek, an old LEGENDARY anime. a world where creatures known as demons exist. The main character, Guts, is known for his great sword and his abillity to slaughter enemies and demons alike. Cursed be demons who try to kill him, Guts goes on and seeks revenge upon them",
+    "tags": ["test", "coding", "software"],
+    "screenshots": [
+      "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/352b0361-42e8-4b81-93ec-8016d43171b3/dd62maj-2629ead7-fcfc-4966-98ec-42896fc620a4.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzM1MmIwMzYxLTQyZTgtNGI4MS05M2VjLTgwMTZkNDMxNzFiM1wvZGQ2Mm1hai0yNjI5ZWFkNy1mY2ZjLTQ5NjYtOThlYy00Mjg5NmZjNjIwYTQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.SG7BeFtp5EN2zs8c4mUW1dsn6DNyEUwQTeB3YJZ7vto"
+    ]
   },
   {
     "id": "3",
-    "date": "2023-10-01",
-    "cardResearchType": "Teacher",
-    "cardTitle": "Magic Kaito",
-    "cardDescription": "Card Describtion V2, Magic kaito, also knonw as magic kaito 1414, a great anime about a theif who seeks a special jewel, to find a lead on the people who killed his father",
-    "cardTags": ["test", "coding", "software"],
-    "cardImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIt1RN0fnZ_trLsZxyHaX976INtKCRcB0oCA&s"
+    "date": "2023-09-01",
+    "researchType": "Researcher",
+    "title": "Magic Kaito",
+    "description": "Card Describtion V2, Magic kaito, also knonw as magic kaito 1414, a great anime about a theif who seeks a special jewel, to find a lead on the people who killed his father",
+    "tags": ["test", "coding", "software"],
+    "screenshots": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIt1RN0fnZ_trLsZxyHaX976INtKCRcB0oCA&s"
+    ]
   },
   {
     "id": "4",
-    "date": "2023-10-01",
-    "cardResearchType": "student",
-    "cardTitle": "Sun God Nika",
-    "cardDescription": "Son God Nika, AKA JOYBOY, a fictinal character created by Ichiro Oda, AKA GODA.",
-    "cardTags": ["test", "coding", "software"],
-    "cardImageURL": "data:image/jpeg;base64,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"
+    "date": "2023-08-01",
+    "researchType": "student",
+    "title": "Sun God Nika",
+    "description": "Son God Nika, AKA JOYBOY, a fictinal character created by Ichiro Oda, AKA GODA.",
+    "tags": ["test", "coding", "software"],
+    "screenshots": [
+      "data:image/jpeg;base64,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"
+    ]
   },
   {
     "id": "5",
-    "date": "2023-10-01",
-    "cardResearchType": "Teacher",
-    "cardTitle": "Moonlight thief",
-    "cardDescription": "Card Describtion V2",
-    "cardTags": ["test", "coding", "software"],
-    "cardImageURL": "https://pbs.twimg.com/profile_images/786817992512241664/tp8Aa8JR_400x400.jpg"
+    "date": "2023-08-01",
+    "researchType": "Researcher",
+    "title": "Moonlight thief",
+    "description": "Card Describtion V2",
+    "tags": ["test", "coding", "software"],
+    "screenshots": [
+      "https://pbs.twimg.com/profile_images/786817992512241664/tp8Aa8JR_400x400.jpg"
+    ]
   },
   {
     "id": "6",
-    "date": "2023-10-01",
-    "cardResearchType": "student",
-    "cardTitle": "Moonlight thief",
-    "cardDescription": "Card Describtion V2",
-    "cardTags": ["test", "coding", "software"],
-    "cardImageURL": "https://pbs.twimg.com/profile_images/786817992512241664/tp8Aa8JR_400x400.jpg"
+    "date": "2023-07-01",
+    "researchType": "student",
+    "title": "Moonlight thief",
+    "description": " Card Describtion V4  Card Describtion V4  Card Describtion V4  Card Describtion V4  Card Describtion V4  Card Describtion V4  Card Describtion V4  Card Describtion V4  Card Describtion V4  Card Describtion V4  Card Describtion V4  Card Describtion V4  Card Describtion V4  Card Describtion V4  Card Describtion V4  Card Describtion V4  Card Describtion V4  Card Describtion V4 ",
+    "tags": ["test", "coding", "software"],
+    "screenshots": [
+      "https://pbs.twimg.com/profile_images/786817992512241664/tp8Aa8JR_400x400.jpg"
+    ]
   },
   {
     "id": "7",
-    "date": "2023-10-01",
-    "cardResearchType": "student",
-    "cardTitle": "Moonlight thief",
-    "cardDescription": "Card Describtion V2",
-    "cardTags": ["test", "coding", "software"],
-    "cardImageURL": "https://pbs.twimg.com/profile_images/786817992512241664/tp8Aa8JR_400x400.jpg"
+    "date": "2022-04-01",
+    "researchType": "student",
+    "title": "Moonlight thief",
+    "description": "Card Describtion V2Card Describtion V2 Card Describtion V2 Card Describtion V2 Card Describtion V2Card Describtion V2Card Describtion V2Card Describtion V2Card Describtion V2Card Describtion V2Card Describtion V2Card Describtion V2Card Describtion V2Card Describtion V2Card Describtion V2Card Describtion V2Card Describtion V2Card Describtion V2Card Describtion V2Card Describtion V2Card Describtion V2Card Describtion V2Card Describtion V2Card Describtion V2",
+    "tags": ["test", "coding", "software"],
+    "screenshots": [
+      "https://pbs.twimg.com/profile_images/786817992512241664/tp8Aa8JR_400x400.jpg"
+    ]
   },
   {
     "id": "8",
-    "date": "2023-10-01",
-    "cardResearchType": "student",
-    "cardTitle": "Moonlight thief",
-    "cardDescription": "Card Describtion V2",
-    "cardTags": ["test", "coding", "software"],
-    "cardImageURL": "https://pbs.twimg.com/profile_images/786817992512241664/tp8Aa8JR_400x400.jpg"
+    "date": "2021-10-01",
+    "researchType": "student",
+    "title": "Moonlight thief",
+    "description": "Card Describtion V2",
+    "tags": ["test", "coding", "software"],
+    "screenshots": [
+      "https://pbs.twimg.com/profile_images/786817992512241664/tp8Aa8JR_400x400.jpg"
+    ]
   },
   {
     "id": "9",
-    "date": "2023-10-01",
-    "cardResearchType": "student",
-    "cardTitle": "Karneval, Gareki, TEST",
-    "cardDescription": "Card Describtion V2",
-    "cardTags": ["test", "coding", "software"],
-    "cardImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe8kxZRP_FdZKtz_SInOeTLw-tUkSIyAKMng&s"
+    "date": "2019-11-23",
+    "researchType": "PhD",
+    "title": "Karneval, Gareki, TEST",
+    "description": "Card Describtion V2",
+    "tags": ["test", "coding", "software"],
+    "screenshots": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe8kxZRP_FdZKtz_SInOeTLw-tUkSIyAKMng&s"
+    ]
   }
 ]

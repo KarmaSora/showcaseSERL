@@ -6,11 +6,11 @@ import Naviagtion from '@/app/components/Navigtion'
 
 interface CardData {
   id: string
-  cardTitle: string
-  cardDescription: string
-  cardTags: string[]
-  cardImageURL: string
-  cardResearchType: string
+  title: string
+  description: string
+  tags: string[]
+  screenshots: string[]
+  researchType: string
   date: string
 }
 
@@ -60,12 +60,12 @@ export default async function SingleCardPage({
 
       <Card
         id={card.id}
-        cardTitle={card.cardTitle}
-        cardDescription={card.cardDescription}
-        cardTags={card.cardTags}
-        cardImageURL={card.cardImageURL}
-        cardResearchType={card.cardResearchType}
-        date={card.date} // Pass the date to the Card component
+        title={card.title}
+        description={card.description}
+        tags={card.tags}
+        screenshots={card.screenshots}
+        researchType={card.researchType}
+        date={card.date}
       />
     </>
   )

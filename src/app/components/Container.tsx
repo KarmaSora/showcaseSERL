@@ -3,25 +3,23 @@ import path from 'path'
 import CardDisplay from './CardDisplay'
 
 interface ResearchData {
-  cardResearchType: string
-  cardTitle: string
-  cardDescription: string
-  cardTags: string[]
-  cardImageURL: string
+  researchType: string
+  title: string
+  description: string
+  tags: string[]
+  screenshots: string[]
   id: string
   date: string
 }
 
 export const revalidate = 60 // Next.js will regenerate the page every 60 seconds
 
-// Server Component (default in the app directory)
 const Container = async () => {
-  // Fetch the data directly inside the component
   const jsonFilePath = path.join(process.cwd(), 'data', 'research.json')
 
-  const fileContents = await fs.readFile(jsonFilePath, 'utf8') // Await is used here
+  const fileContents = await fs.readFile(jsonFilePath, 'utf8')
 
-  const researchCards: ResearchData[] = JSON.parse(fileContents) // Parse the JSON string
+  const researchCards: ResearchData[] = JSON.parse(fileContents) //convert json text to JS objekt
 
   return (
     <div>

@@ -6,11 +6,11 @@ import Card from './Card'
 
 interface ResearchData {
   id: string
-  cardResearchType: string
-  cardTitle: string
-  cardDescription: string
-  cardTags: string[]
-  cardImageURL: string
+  researchType: string
+  title: string
+  description: string
+  tags: string[]
+  screenshots: string[]
   date: string
 }
 
@@ -30,23 +30,23 @@ const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
     setSelectedType(event.target.value) // Store the selected cardResearchType
   }
 
-  // First filter: Filter the research cards based on cardResearchType (case-insensitive)
+  // First filter: Filter the Research cards based on cardResearchType (case-insensitive)
   const filteredByType = researchCards.filter((card) => {
-    if (selectedType === 'All' || '') return true // Show all cards if "All" is selected
-    return card.cardResearchType.toLowerCase() === selectedType.toLowerCase() // Case-insensitive comparison for researchType
+    if (selectedType === 'All' || '') return true // Show all cards if (All) is selected
+    return card.researchType.toLowerCase() === selectedType.toLowerCase()
   })
 
   // Second filter: Apply the text filter (title, description, tags) to the already filtered data by type
   const finalFilteredCards = filteredByType.filter((card) => {
     const matchesTitleOrDescription =
-      card.cardTitle.toLowerCase().includes(inputText) ||
-      card.cardDescription.toLowerCase().includes(inputText)
+      card.title.toLowerCase().includes(inputText) ||
+      card.description.toLowerCase().includes(inputText)
 
-    const matchesTags = card.cardTags.some((tag) =>
+    const matchesTags = card.tags.some((tag) =>
       tag.toLowerCase().includes(inputText)
     )
 
-    return matchesTitleOrDescription || matchesTags // Return true if matches title, description, or any tag
+    return matchesTitleOrDescription || matchesTags
   })
 
   useEffect(() => {
@@ -64,8 +64,9 @@ const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
       <section className='typeChangeSelection'>
         <select value={selectedType} onChange={handleTypeChange}>
           <option value='All'>All</option>
-          <option value='student'>Student</option>
-          <option value='teacher'>Teacher</option>
+          <option value='Student'>Student</option>
+          <option value='Researcher'>Researcher</option>
+          <option value='PhD'>PhD</option>
         </select>
       </section>
       {/* Input field to type the filter text (title, description, tags) */}
@@ -86,11 +87,11 @@ const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
           finalFilteredCards.map((card, index) => (
             <Card
               key={index}
-              cardResearchType={card.cardResearchType}
-              cardTitle={card.cardTitle}
-              cardDescription={card.cardDescription}
-              cardTags={card.cardTags}
-              cardImageURL={card.cardImageURL}
+              researchType={card.researchType}
+              title={card.title}
+              description={card.description}
+              tags={card.tags}
+              screenshots={card.screenshots}
               date={card.date}
               id={card.id}
             />
