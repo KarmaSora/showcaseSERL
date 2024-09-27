@@ -70,6 +70,7 @@ const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
       </section>
       {/* Input field to type the filter text (title, description, tags) */}
       <input
+        className='inputFilter'
         type='text'
         placeholder='Filter by title, description, or tags'
         value={inputText}

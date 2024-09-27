@@ -83,6 +83,12 @@ a {
   margin: 5px;
 }
 
+.card-date {
+  font-size: 0.8rem;
+  color: #777;
+  margin: 10px 0;
+}
+
 .inputFilter {
   color: #0a0a0a;
 }
@@ -97,6 +103,7 @@ a {
 button {
   background-color: darkmagenta;
 }
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
