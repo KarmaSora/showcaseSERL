@@ -65,7 +65,7 @@ export default async function SingleCardPage({
         cardTags={card.cardTags}
         cardImageURL={card.cardImageURL}
         cardResearchType={card.cardResearchType}
-        cardDate={card.date} // Pass the date to the Card component
+        date={card.date} // Pass the date to the Card component
       />
     </>
   )
