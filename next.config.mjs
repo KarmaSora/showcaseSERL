@@ -4,6 +4,9 @@ const nextBasePath = process.env.NEXT_BASE_PATH || ''
 const nextConfig = {
   output: 'export',
   basePath: nextBasePath,
+  images: {
+    unoptimized: true,
+  },
 }
 
 export default nextConfig

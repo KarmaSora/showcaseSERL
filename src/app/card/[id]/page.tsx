@@ -1,17 +1,17 @@
 import path from 'path'
 import fs from 'fs/promises'
-import Card from '../../components/Card'
 import { notFound } from 'next/navigation'
 import Naviagtion from '@/app/components/Navigtion'
+import SingleProject from '../../components/singleProject'
 
 interface CardData {
-  id: string
+  researchType: string
   title: string
   description: string
   tags: string[]
   screenshots: string[]
-  researchType: string
   date: string
+  id: string
 }
 
 // Fetch all card data
@@ -58,7 +58,7 @@ export default async function SingleCardPage({
     <>
       <Naviagtion />
 
-      <Card
+      <SingleProject
         id={card.id}
         title={card.title}
         description={card.description}

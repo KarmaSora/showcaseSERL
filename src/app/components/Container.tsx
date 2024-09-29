@@ -19,12 +19,12 @@ const Container = async () => {
 
   const fileContents = await fs.readFile(jsonFilePath, 'utf8')
 
-  const researchCards: ResearchData[] = JSON.parse(fileContents) //convert json text to JS objekt
+  const researchCardsTest: ResearchData[] = JSON.parse(fileContents) //convert json text to JS objekt
 
   return (
     <div>
       {/* Pass the researchCards to the client-side CardDisplay component */}
-      <CardDisplay researchCards={researchCards} />
+      <CardDisplay researchCards={researchCardsTest} />
     </div>
   )
 }
