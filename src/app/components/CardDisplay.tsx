@@ -17,8 +17,8 @@ interface ResearchData {
 const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
   const [inputText, setInputText] = useState('') // Track input text for filtering by title/description/tags
   const [selectedType, setSelectedType] = useState('All') // Track the selected cardResearchType
-
   const [loadingBool, setLoadingBoolState] = useState(true)
+  const [sortOrder, setSortOrder] = useState('desc') // Track sorting order (asc or desc)
 
   // Handle user input for text filtering (title, description, tags)
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,6 +30,12 @@ const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
     setSelectedType(event.target.value) // Store the selected cardResearchType
   }
 
+  const handleSortOrderChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    setSortOrder(event.target.value) // Store the selected sort order
+  }
+
   // First filter: Filter the Research cards based on cardResearchType (case-insensitive)
   const filteredByType = researchCards.filter((card) => {
     if (selectedType === 'All' || '') return true // Show all cards if (All) is selected
@@ -37,17 +43,26 @@ const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
   })
 
   // Second filter: Apply the text filter (title, description, tags) to the already filtered data by type
-  const finalFilteredCards = filteredByType.filter((card) => {
-    const matchesTitleOrDescription =
-      card.title.toLowerCase().includes(inputText) ||
-      card.description.toLowerCase().includes(inputText)
+  const finalFilteredCards = filteredByType
+    .filter((card) => {
+      const matchesTitleOrDescription =
+        card.title.toLowerCase().includes(inputText) ||
+        card.description.toLowerCase().includes(inputText)
 
-    const matchesTags = card.tags.some((tag) =>
-      tag.toLowerCase().includes(inputText)
-    )
+      const matchesTags = card.tags.some((tag) =>
+        tag.toLowerCase().includes(inputText)
+      )
 
-    return matchesTitleOrDescription || matchesTags
-  })
+      return matchesTitleOrDescription || matchesTags
+    })
+
+    .sort((a, b) => {
+      if (sortOrder === 'asc') {
+        return new Date(a.date).getTime() - new Date(b.date).getTime() // Ascending order
+      } else {
+        return new Date(b.date).getTime() - new Date(a.date).getTime() // Descending order
+      }
+    })
 
   useEffect(() => {
     if (researchCards && researchCards.length > 0) {
@@ -77,6 +92,20 @@ const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
         value={inputText}
         onChange={handleInputChange}
       />
+
+      {/* Dropdown to select sort order */}
+      <section className='sortOrderSelection'>
+        <label htmlFor='sortOrder'>Sort by date:</label>
+        <select
+          id='sortOrder'
+          value={sortOrder}
+          onChange={handleSortOrderChange}
+        >
+          <option value='desc'>Descending</option>
+          <option value='asc'>Ascending</option>
+        </select>
+      </section>
+
       {/* Button to trigger the filtering */}
       <button>Filter</button>
       {/* Display final filtered research cards */}

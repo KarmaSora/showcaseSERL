@@ -28,7 +28,7 @@ function Card({
   }
   return (
     <section className='card'>
-      <p className='card-type'>cardResearchType: {researchType}</p>
+      <p className='card-type'>Project type: {researchType}</p>
 
       <img src={screenshots[0]} alt='an image' className='card-image' />
       <h1 className='card-title'>{title}</h1>
@@ -42,8 +42,7 @@ function Card({
         ))}
       </ul>
       <Link href={`/card/${id}`} className='cardURL'>
-        {' '}
-        Go HERE!{' '}
+        Go HERE!
       </Link>
     </section>
   )
