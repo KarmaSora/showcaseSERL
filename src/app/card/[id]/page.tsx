@@ -3,6 +3,7 @@ import fs from 'fs/promises'
 import { notFound } from 'next/navigation'
 import Naviagtion from '@/app/components/Navigtion'
 import SingleProject from '../../components/singleProject'
+import QRCode from '../../components/QRCode'
 
 interface CardData {
   researchType: string
@@ -57,7 +58,7 @@ export default async function SingleCardPage({
   return (
     <>
       <Naviagtion />
-
+      <QRCode IdForURL={card.id} />
       <SingleProject
         id={card.id}
         title={card.title}
