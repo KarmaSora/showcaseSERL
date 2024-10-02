@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface Prop {
   researchType: string
@@ -30,7 +31,13 @@ function Card({
     <section className='card'>
       <p className='card-type'>Project type: {researchType}</p>
 
-      <img src={screenshots[0]} alt='an image' className='card-image' />
+      <Image
+        src={screenshots[0]}
+        alt={`Project Screenshot`}
+        width={800}
+        height={400}
+        className='card-image'
+      />
       <h1 className='card-title'>{title}</h1>
       <p className='card-description'>{trimmedDescription}</p>
       <p className='card-date'>Date: {date}</p>
