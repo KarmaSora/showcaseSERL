@@ -50,13 +50,13 @@ function SingleProject({
             onClick={handlePrevImage}
             className='absolute left-0 top-1/2 -translate-y-1/2 transform rounded-full bg-gray-800 px-3 py-1 text-white hover:bg-gray-600'
           >
-            Prev
+            ← Prev
           </button>
           <button
             onClick={handleNextImage}
             className='absolute right-0 top-1/2 -translate-y-1/2 transform rounded-full bg-gray-800 px-3 py-1 text-white hover:bg-gray-600'
           >
-            Next
+            Next →
           </button>
         </div>
       )}

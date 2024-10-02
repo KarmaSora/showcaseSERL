@@ -12,7 +12,7 @@ function Naviagtion() {
               <Link href='/'> home page</Link>
             </li>
             <li>
-              <Link href={'/'}>Kiosk Mode</Link>
+              <Link href={'/kiosk'}>Kiosk Mode ⛶</Link>
             </li>
           </ul>
         </nav>
