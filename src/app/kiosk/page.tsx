@@ -28,7 +28,6 @@ const kiosk = async () => {
   return (
     <div>
       {/* Pass the researchCards to the client-side CardDisplay component */}
-      <h1>hehehe</h1>
 
       <KioskPage ResearchDataToDisplay={researchCardsTest} />
     </div>

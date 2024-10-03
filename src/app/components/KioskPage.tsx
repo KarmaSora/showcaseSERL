@@ -1,6 +1,9 @@
-'use client' // Ensure this is a client component
+'use client'
+
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
+import Naviagtion from './Navigtion'
+
 interface ResearchDataToDisplay {
   id: string
   date: string
@@ -11,25 +14,21 @@ interface ResearchDataToDisplay {
   screenshots: string[]
   researchURL: string
 }
-function kioskPage({
+
+function KioskPage({
   ResearchDataToDisplay,
 }: {
   ResearchDataToDisplay: ResearchDataToDisplay[]
 }) {
-  useEffect(() => {
-    console.log(ResearchDataToDisplay)
-  })
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  // Use an effect to change the index at a set interval (e.g., every 60 seconds)
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) =>
         prevIndex === ResearchDataToDisplay.length - 1 ? 0 : prevIndex + 1
       )
-    }, 6000) // 6 seconds
+    }, 600)
 
-    // Clean up the interval on component unmount
     return () => clearInterval(interval)
   }, [ResearchDataToDisplay])
 
@@ -37,20 +36,70 @@ function kioskPage({
 
   return (
     <>
-      <div className='mx-auto max-w-4xl rounded-lg bg-white p-6 shadow-md'>
-        <h1 className='card-description'>hehehe</h1>
-        <h1 className='card-description'> {currentData.title}</h1>
-        <Image
-          src={currentData.screenshots[0]}
-          alt={'first shot'}
-          width={800}
-          height={400}
-          className='h-64 w-full rounded-lg object-contain shadow-lg'
-        />
-        {currentData.id}
+      <Naviagtion />
+      <div className='flex min-h-[500px] min-h-screen min-w-[700px] flex-col items-center justify-center bg-gray-100 p-10'>
+        <div className='min-h-[500px] w-full max-w-4xl overflow-hidden rounded-lg bg-white p-6 shadow-lg'>
+          <div className='clearfix'>
+            {/* Floating Image on the left */}
+            <div className='float-left mr-4'>
+              <Image
+                src={currentData.screenshots[0]}
+                alt='Screenshot'
+                width={300}
+                height={200}
+                className='rounded-lg object-contain shadow-md'
+              />
+            </div>
+
+            {/* Description Text */}
+            <div className='overflow-hidden'>
+              <h1 className='mb-2 text-2xl font-bold text-gray-800'>
+                {currentData.title}
+              </h1>
+              <p className='mb-4 text-sm text-gray-600'>
+                {currentData.description}
+              </p>
+            </div>
+
+            <div className='flex items-center justify-between'>
+              <p className='text-sm text-gray-600'>
+                <strong>ID:</strong> {currentData.id}
+              </p>
+              <p className='text-sm text-gray-600'>
+                <strong>Date:</strong>{' '}
+                {new Date(currentData.date).toLocaleDateString()}
+              </p>
+            </div>
+
+            <div className='mt-4'>
+              <h2 className='text-lg font-semibold text-gray-700'>Tags</h2>
+              <ul className='mt-2 flex flex-wrap space-x-2'>
+                {currentData.tags.map((tag, index) => (
+                  <li
+                    key={index}
+                    className='rounded bg-blue-100 px-2 py-1 text-xs font-semibold text-blue-800'
+                  >
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className='mt-4 text-right'>
+              <a
+                href={currentData.researchURL}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='font-semibold text-blue-600 hover:text-blue-800'
+              >
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   )
 }
 
-export default kioskPage
+export default KioskPage

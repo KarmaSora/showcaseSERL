@@ -66,10 +66,29 @@ a {
   overflow: hidden; /* Hide the overflowing text */
   text-overflow: ellipsis; /* Show ellipsis (...) for overflowing text */
 }
+
+.float-image {
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+.clearfix::after {
+  content: '';
+  display: table;
+  clear: both;
+}
 .card-image {
   width: 100%;
   height: 150px;
   object-fit: cover;
+  display: inline-block;
+}
+.kiosk_images {
+  width: 200%;
+  height: 300px;
+  object-fit: cover;
+  display: inline-block;
 }
 
 .card-title {

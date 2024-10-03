@@ -5,7 +5,6 @@ function Naviagtion() {
   return (
     <>
       <section className='divide-y divide-gray-200 '>
-        <h1> here starts the naviagtion component</h1>
         <nav>
           <ul>
             <li>
@@ -16,7 +15,6 @@ function Naviagtion() {
             </li>
           </ul>
         </nav>
-        <h1> here ends the naviagtion component</h1>
       </section>
     </>
   )
