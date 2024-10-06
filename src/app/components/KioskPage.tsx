@@ -86,21 +86,29 @@ function KioskPage({
             </div>
 
             <div className='mt-4 text-right'>
-              <a
-                href={currentData.researchURL}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='font-semibold text-blue-600 hover:text-blue-800'
-              >
-                currentData.researchURL????
-              </a>
+              {/* Link to the research URL */}
+              {currentData.researchURL == '' ? (
+                <h1 className='font-semibold text-red-600 hover:text-blue-800'>
+                  no link provided
+                </h1>
+              ) : (
+                <a
+                  href={currentData.researchURL}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='font-semibold text-blue-600 hover:text-blue-800'
+                >
+                  currentData.researchURL????
+                </a>
+              )}
+
               <a
                 href={`/card/${currentData.id}`}
                 target='_blank'
                 rel='noopener noreferrer'
                 className='font-semibold text-blue-600 hover:text-blue-800'
               >
-                /card/${currentData.id}{' '}
+                /card/${currentData.id}
               </a>
             </div>
           </div>
