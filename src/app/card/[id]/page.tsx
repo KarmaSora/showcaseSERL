@@ -58,7 +58,6 @@ export default async function SingleCardPage({
   return (
     <>
       <Naviagtion />
-      <QRCode IdForURL={card.id} />
       <SingleProject
         id={card.id}
         title={card.title}

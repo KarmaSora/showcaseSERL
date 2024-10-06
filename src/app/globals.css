@@ -55,6 +55,8 @@ a {
 }
 .sortOrderSelection {
   color: #0a0a0a;
+  display: inline-block;
+  margin: 0.8rem;
 }
 
 .card-description {
@@ -132,10 +134,14 @@ a {
 
 .typeChangeSelection {
   color: #0a0a0a;
+  display: inline-block;
 }
 
 button {
   background-color: darkmagenta;
+}
+.readable {
+  color: #bdb1b1;
 }
 
 @layer utilities {

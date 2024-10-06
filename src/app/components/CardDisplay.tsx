@@ -77,11 +77,26 @@ const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
     <>
       {/* Dropdown for filtering by cardResearchType */}
       <section className='typeChangeSelection'>
+        <h1 className='readable'>types</h1>
         <select value={selectedType} onChange={handleTypeChange}>
           <option value='All'>All</option>
           <option value='Student'>Student</option>
           <option value='Researcher'>Researcher</option>
           <option value='PhD'>PhD</option>
+        </select>
+      </section>
+
+      {/* Dropdown to select sort order */}
+      <section className='sortOrderSelection'>
+        <h1 className='readable'>time order</h1>
+
+        <select
+          id='sortOrder'
+          value={sortOrder}
+          onChange={handleSortOrderChange}
+        >
+          <option value='desc'>Descending</option>
+          <option value='asc'>Ascending</option>
         </select>
       </section>
       {/* Input field to type the filter text (title, description, tags) */}
@@ -92,22 +107,9 @@ const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
         value={inputText}
         onChange={handleInputChange}
       />
-
-      {/* Dropdown to select sort order */}
-      <section className='sortOrderSelection'>
-        <label htmlFor='sortOrder'>Sort by date:</label>
-        <select
-          id='sortOrder'
-          value={sortOrder}
-          onChange={handleSortOrderChange}
-        >
-          <option value='desc'>Descending</option>
-          <option value='asc'>Ascending</option>
-        </select>
-      </section>
+      <button>Filter</button>
 
       {/* Button to trigger the filtering */}
-      <button>Filter</button>
       {/* Display final filtered research cards */}
       {/* Display filtered data length, aka, card count */}
       <h2>Number of filtered data found: {finalFilteredCards.length}</h2>

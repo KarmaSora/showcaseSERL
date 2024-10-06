@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Image from 'next/image'
+import QRCode from './QRCode'
 
 interface SingleProjectProps {
   researchType: string
@@ -35,8 +36,28 @@ function SingleProject({
     )
   }
 
+  const [showQRCode, setShowQRCode] = useState(false)
+
   return (
     <div className='mx-auto max-w-4xl rounded-lg bg-white p-6 shadow-md'>
+      {/* Show QR code if showQRCode is true */}
+      {!showQRCode ? (
+        <button
+          onClick={() => setShowQRCode(true)}
+          className='rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-700'
+        >
+          Show QR Code
+        </button>
+      ) : (
+        <button
+          onClick={() => setShowQRCode(false)}
+          className='rounded-lg bg-red-500 px-4 py-2 text-white hover:bg-red-700'
+        >
+          Hide QR Code
+        </button>
+      )}
+      {showQRCode ? <QRCode IdForURL={id} /> : null}
+
       {screenshots.length > 0 && (
         <div className='relative mb-6'>
           <Image
