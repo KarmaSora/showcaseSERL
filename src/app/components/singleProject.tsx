@@ -56,7 +56,11 @@ function SingleProject({
           Hide QR Code
         </button>
       )}
-      {showQRCode ? <QRCode IdForURL={id} /> : null}
+      {showQRCode ? (
+        <div className='flex items-center justify-center bg-gray-100'>
+          <QRCode IdForURL={id} />{' '}
+        </div>
+      ) : null}
 
       {screenshots.length > 0 && (
         <div className='relative mb-6'>
