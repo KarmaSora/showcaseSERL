@@ -92,7 +92,15 @@ function KioskPage({
                 rel='noopener noreferrer'
                 className='font-semibold text-blue-600 hover:text-blue-800'
               >
-                Learn More
+                currentData.researchURL????
+              </a>
+              <a
+                href={`/card/${currentData.id}`}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='font-semibold text-blue-600 hover:text-blue-800'
+              >
+                /card/${currentData.id}{' '}
               </a>
             </div>
           </div>
