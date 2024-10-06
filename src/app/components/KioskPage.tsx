@@ -2,8 +2,7 @@
 
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
-import Naviagtion from './Navigtion'
-
+import Header from './Header'
 interface ResearchDataToDisplay {
   id: string
   date: string
@@ -27,7 +26,7 @@ function KioskPage({
       setCurrentIndex((prevIndex) =>
         prevIndex === ResearchDataToDisplay.length - 1 ? 0 : prevIndex + 1
       )
-    }, 600)
+    }, 6000)
 
     return () => clearInterval(interval)
   }, [ResearchDataToDisplay])
@@ -36,7 +35,7 @@ function KioskPage({
 
   return (
     <>
-      <Naviagtion />
+      <Header />
       <div className='flex min-h-[500px] min-h-screen min-w-[700px] flex-col items-center justify-center bg-gray-100 p-10'>
         <div className='min-h-[500px] w-full max-w-4xl overflow-hidden rounded-lg bg-white p-6 shadow-lg'>
           <div className='clearfix'>
@@ -52,6 +51,7 @@ function KioskPage({
             </div>
 
             {/* Description Text */}
+
             <div className='overflow-hidden'>
               <h1 className='mb-2 text-2xl font-bold text-gray-800'>
                 {currentData.title}
