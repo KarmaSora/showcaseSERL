@@ -3,7 +3,6 @@ import fs from 'fs/promises'
 import { notFound } from 'next/navigation'
 import Naviagtion from '@/app/components/Navigtion'
 import SingleProject from '../../components/singleProject'
-import QRCode from '../../components/QRCode'
 
 interface CardData {
   researchType: string

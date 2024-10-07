@@ -23,7 +23,7 @@ const kiosk = async () => {
   const researchCardsTest: ResearchData[] = JSON.parse(fileContents) //convert json text to JS objekt
 
   const sizeOf = researchCardsTest.length
-  const lastIndex = sizeOf - 1
+  //const lastIndex = sizeOf - 1
 
   return (
     <div>

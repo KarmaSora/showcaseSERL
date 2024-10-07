@@ -49,6 +49,7 @@ function KioskPage({
 
   return (
     <>
+      <Header />
       <div className='flex min-h-screen min-w-[700px] flex-col items-center justify-center bg-gray-100 p-4'>
         <div className='flex min-h-[500px] w-full max-w-4xl flex-col overflow-hidden rounded-lg bg-white p-4 shadow-lg'>
           <div className='clearfix flex flex-1'>
