@@ -3,7 +3,6 @@ function Header() {
   return (
     <>
       <header>
-        <h1> this is a Header</h1>
         <Naviagtion />
       </header>
     </>
