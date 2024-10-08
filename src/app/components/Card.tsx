@@ -27,6 +27,7 @@ function Card({
   if (description.length < 100) {
     trimmedDescription = description.padEnd(103, '')
   }
+
   return (
     <section className='card'>
       <p className='card-type'>Project type: {researchType}</p>
@@ -38,10 +39,12 @@ function Card({
         height={400}
         className='card-image'
       />
-      <h1 className='card-title'>{title}</h1>
+      <h1 className=' card-title overflow-x-auto '>{title}</h1>
+      {/*       <p className='card-description'>{trimmedDescription}</p>*/}
       <p className='card-description'>{trimmedDescription}</p>
+
       <p className='card-date'>Date: {date}</p>
-      <ul className='card-tags'>
+      <ul className=' ml-4 flex flex-1 justify-center space-x-2 overflow-x-auto p-4 '>
         {tags.map((tag, index) => (
           <li key={index} className='tag'>
             {tag}

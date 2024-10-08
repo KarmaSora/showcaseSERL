@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -38,7 +33,7 @@ a {
 }
 
 .card {
-  width: 250px;
+  width: 400px;
   height: 500px;
   border: 1px solid #e0e0e0;
   border-radius: 10px;
@@ -95,7 +90,7 @@ a {
 
 .card-title {
   font-size: 1.5rem;
-  margin: 10px 0;
+  /* margin: 10px 0; */
   color: #323030;
 }
 

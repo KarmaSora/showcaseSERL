@@ -37,10 +37,7 @@ function KioskPage({
 
   const currentData = ResearchDataToDisplay[currentIndex]
 
-  // Define a character limit for the description
   const maxCharLength = 1000
-
-  // Function to truncate the description if it's too long
   const truncateDescription = (description: string) => {
     return description.length > maxCharLength
       ? description.substring(0, maxCharLength) + '...'
@@ -79,10 +76,9 @@ function KioskPage({
             </div>
           </div>
 
-          {/* Bottom Fixed Section */}
           <div className='mt-4 flex w-full items-center justify-between border-t pt-4'>
             <div className='text-sm text-gray-600'>
-              <strong>Date:</strong>{' '}
+              <strong>Date:</strong>
               {new Date(currentData.date).toLocaleDateString()}
             </div>
             <div className='ml-4 flex flex-1 space-x-2 overflow-x-auto p-4 '>
