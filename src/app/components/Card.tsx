@@ -37,7 +37,7 @@ function Card({
         alt={`Project Screenshot`}
         width={800}
         height={400}
-        className='card-image'
+        className='h-[150px] w-[800px] rounded-lg object-contain shadow-md'
       />
       <h1 className=' card-title overflow-x-auto '>{title}</h1>
       {/*       <p className='card-description'>{trimmedDescription}</p>*/}
