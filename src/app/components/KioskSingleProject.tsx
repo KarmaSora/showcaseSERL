@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import QRCode from './QRCode'
 import Header from './Header'
-import { useRouter } from 'next/navigation' // Import from next/navigation
+import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 interface ResearchDataToDisplay {
@@ -23,50 +23,43 @@ interface KioskSingleProjectProps {
 }
 
 function KioskSingleProject({ data, currentId }: KioskSingleProjectProps) {
-  const router = useRouter() // Using next/navigation useRouter
+  const router = useRouter()
   const chosenTimerForPageIteration = 6000 // Interval in milliseconds (6 seconds)
 
-  const [currentData, setCurrentData] = useState<ResearchDataToDisplay | null>(
-    data.find((item) => item.id === currentId) || null
+  // State to hold the currently displayed research item index
+  const [currentIndex, setCurrentIndex] = useState<number>(() =>
+    data.findIndex((item) => item.id === currentId)
   )
 
-  // Update the state to reflect the correct project based on the provided currentId
+  // Update the state when the component mounts or when the currentId changes
   useEffect(() => {
-    const foundData = data.find((item) => item.id === currentId)
-    if (foundData) {
-      setCurrentData(foundData)
+    const foundIndex = data.findIndex((item) => item.id === currentId)
+    if (foundIndex !== -1) {
+      setCurrentIndex(foundIndex)
     } else if (data.length > 0) {
-      setCurrentData(data[0])
-      // Update the URL to the first item if currentId is invalid
-      router.replace(`/kiosk/${data[0].id}`)
+      setCurrentIndex(0)
+      // Only push to the URL if the currentId is not found to ensure a valid route
+      router.push(`/kiosk/${data[0].id}`)
     }
   }, [currentId, data, router])
 
-  // Automatically navigate to the next project after the interval
+  // Automatically switch to the next project after the interval without updating the URL
   useEffect(() => {
     if (data.length > 0) {
       const interval = setInterval(() => {
-        const currentIndex = data.findIndex((item) => item.id === currentId)
-
-        if (currentIndex !== -1) {
-          const nextIndex = (currentIndex + 1) % data.length
-
-          // Update the URL to the next project without a full page refresh
-          router.push(`/kiosk/${data[nextIndex].id}`)
-
-          // Update the state to reflect the next data
-          setCurrentData(data[nextIndex])
-        }
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length)
       }, chosenTimerForPageIteration)
 
-      // Cleanup interval on unmount
+      // Cleanup interval on component unmount
       return () => clearInterval(interval)
     }
-  }, [currentId, data, router])
+  }, [data, chosenTimerForPageIteration])
 
-  if (!currentData) {
+  if (currentIndex === -1) {
     return <div>Loading...</div>
   }
+
+  const currentData = data[currentIndex]
 
   return (
     <>
