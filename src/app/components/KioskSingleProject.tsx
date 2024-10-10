@@ -116,6 +116,7 @@ function KioskSingleProject({ data, currentId }: KioskSingleProjectProps) {
               <Image
                 src={currentData.screenshots[currentImageIndex]}
                 alt='Screenshot'
+                priority={true}
                 width={300}
                 height={200}
                 className='h-[200px] w-[300px] rounded-lg object-contain shadow-md'

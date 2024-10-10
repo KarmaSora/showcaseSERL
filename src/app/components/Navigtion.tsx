@@ -1,5 +1,5 @@
 import Link from 'next/link'
-
+import FullscreenButton from './fullscreen'
 // PascalCase
 function Naviagtion() {
   return (
@@ -14,6 +14,7 @@ function Naviagtion() {
               <Link href={'/kiosk'}>Kiosk Mode ⛶</Link>
             </li>
           </ul>
+          <FullscreenButton />
         </nav>
       </section>
     </>

@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import QRCode from './QRCode'
+import Link from 'next/link'
 
 interface SingleProjectProps {
   id: string
@@ -66,10 +67,13 @@ function SingleProject({
       )}
       {showQRCode ? (
         <div className='flex items-center justify-center bg-gray-100'>
-          <QRCode IdForURL={researchURL} />{' '}
+          <QRCode IdForURL={researchURL} />
         </div>
       ) : null}
 
+      <button className='mx-auto max-w-2xl rounded-lg  p-2 shadow-md'>
+        <Link href={`/kiosk/${id}`}>view in kiosk</Link>
+      </button>
       {screenshots.length > 0 && (
         <div className='relative mb-6'>
           <Image

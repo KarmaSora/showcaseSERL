@@ -39,6 +39,7 @@ function Card({
       <p className='card-type'>Project type: {researchType}</p>
       <Image
         src={screenshots[0]}
+        priority={true}
         alt={`Project Screenshot`}
         width={800}
         height={400}
