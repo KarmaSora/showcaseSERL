@@ -24,7 +24,7 @@ interface KioskSingleProjectProps {
 
 function KioskSingleProject({ data, currentId }: KioskSingleProjectProps) {
   const router = useRouter()
-  const chosenTimerForPageIteration = 6000 // Interval in milliseconds (6 seconds)
+  const chosenTimerForPageIteration = 600 // Interval in milliseconds (6 seconds)
 
   // State to hold the currently displayed research item index
   const [currentIndex, setCurrentIndex] = useState<number>(() =>
@@ -61,6 +61,13 @@ function KioskSingleProject({ data, currentId }: KioskSingleProjectProps) {
 
   const currentData = data[currentIndex]
 
+  const maxCharLength = 1000
+  const truncateDescription = (description: string) => {
+    return description.length > maxCharLength
+      ? description.substring(0, maxCharLength) + '...'
+      : description
+  }
+
   return (
     <>
       <Header />
@@ -84,7 +91,7 @@ function KioskSingleProject({ data, currentId }: KioskSingleProjectProps) {
                 {currentData.title}
               </h1>
               <p className='mb-4 text-sm text-gray-600'>
-                {currentData.description}
+                {truncateDescription(currentData.description)}
               </p>
             </div>
           </div>
