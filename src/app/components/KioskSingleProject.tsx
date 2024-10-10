@@ -1,5 +1,4 @@
 'use client'
-
 import Image from 'next/image'
 import QRCode from './QRCode'
 import Header from './Header'
@@ -24,7 +23,9 @@ interface KioskSingleProjectProps {
 
 function KioskSingleProject({ data, currentId }: KioskSingleProjectProps) {
   const router = useRouter()
-  const chosenTimerForPageIteration = 600 // Interval in milliseconds (6 seconds)
+  const chosenTimerForPageIteration = 12000 // Interval in milliseconds (12 seconds)
+  const timeBetweenImageIteration = 3000 // Interval for images in milliseconds (3 seconds)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   // State to hold the currently displayed research item index
   const [currentIndex, setCurrentIndex] = useState<number>(() =>
@@ -43,17 +44,33 @@ function KioskSingleProject({ data, currentId }: KioskSingleProjectProps) {
     }
   }, [currentId, data, router])
 
-  // Automatically switch to the next project after the interval without updating the URL
+  // Automatically switch to the next project and iterate through images
   useEffect(() => {
     if (data.length > 0) {
       const interval = setInterval(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length)
+        setCurrentIndex((prevIndex) => {
+          const nextIndex = (prevIndex + 1) % data.length
+          setCurrentImageIndex(0) // Reset image index when switching projects
+          return nextIndex
+        })
       }, chosenTimerForPageIteration)
 
-      // Cleanup interval on component unmount
       return () => clearInterval(interval)
     }
   }, [data, chosenTimerForPageIteration])
+
+  // Automatically switch to the next image for the current project
+  useEffect(() => {
+    if (currentIndex !== -1 && data[currentIndex].screenshots.length > 0) {
+      const interval = setInterval(() => {
+        setCurrentImageIndex(
+          (prevIndex) => (prevIndex + 1) % data[currentIndex].screenshots.length
+        )
+      }, timeBetweenImageIteration)
+
+      return () => clearInterval(interval)
+    }
+  }, [currentIndex, data, timeBetweenImageIteration])
 
   if (currentIndex === -1) {
     return <div>Loading...</div>
@@ -76,7 +93,7 @@ function KioskSingleProject({ data, currentId }: KioskSingleProjectProps) {
           <div className='clearfix flex flex-1'>
             <div className='mr-4'>
               <Image
-                src={currentData.screenshots[0]}
+                src={currentData.screenshots[currentImageIndex]}
                 alt='Screenshot'
                 width={300}
                 height={200}

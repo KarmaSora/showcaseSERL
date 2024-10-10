@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, use } from 'react'
 import QRCode from './QRCode'
 import Header from './Header'
 
@@ -22,6 +22,8 @@ function KioskPage({
   ResearchDataToDisplay: ResearchDataToDisplay[]
 }) {
   const [currentIndex, setCurrentIndex] = useState(0)
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const chosenTimerForPageItteration = 6000
 
@@ -44,6 +46,24 @@ function KioskPage({
       : description
   }
 
+  const currentScreenshotsNumberSize = currentData.screenshots.length
+
+  let timeBetweenImageItteration = 3000 // 3 seconds starting time if no images?
+  if (currentScreenshotsNumberSize > 0) {
+    timeBetweenImageItteration =
+      chosenTimerForPageItteration / currentScreenshotsNumberSize
+  }
+  //loop through images after set timeBetweenImgeItteration
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === currentScreenshotsNumberSize - 1 ? 0 : prevIndex + 1
+      )
+    }, timeBetweenImageItteration)
+
+    return () => clearInterval(interval)
+  }, [currentScreenshotsNumberSize, timeBetweenImageItteration])
+
   return (
     <>
       <Header />
@@ -53,7 +73,7 @@ function KioskPage({
             {/* Floating Image on the left */}
             <div className='mr-4'>
               <Image
-                src={currentData.screenshots[0]}
+                src={currentData.screenshots[currentImageIndex]}
                 alt='Screenshot'
                 width={300}
                 height={200}
