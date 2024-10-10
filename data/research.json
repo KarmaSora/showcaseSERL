@@ -48,5 +48,15 @@
       "https://github.com/andreas-bauer/rejoinderoo/raw/main/images/screenshot.png"
     ],
     "researchURL": "https://github.com/hcengineering/platform"
+  },
+  {
+    "id": "20",
+    "date": "2024-10-30",
+    "researchType": "Student",
+    "title": "100-exercises-to-learn-rust  ",
+    "description": "Learn Rust, one exercise at a timeYou've heard about Rust, but you never had the chance to try it out?This course is for you!You'll learn Rust by solving 100 exercises.You'll go from knowing nothing about Rust to being able to start writing your own programs, one exercise at a time.NoteThis course has been written by Mainmatter.It's one of the trainings in our portfolio of Rust workshops.Check out our landing page if you're looking for Rust consulting or training!Getting startedGo to rust-exercises.com and follow the instructions there to get started with the course.RequirementsRust (follow instructions here).If rustup is already installed on your system, run rustup update (or another appropriate command depending on how you installed Rust on your system) to make sure you're running on the latest stable version.(Optional but recommended) An IDE with Rust autocompletion support. We recommend one of the following:RustRover;Visual Studio Code with the rust-analyzer extension.SolutionsYou can find the solutions to the exercises in the solutions branch of this repository.LicenseCopyright © 2024- Mainmatter GmbH (https://mainmatter.com), released under the Creative Commons Attribution-NonCommercial 4.0 International license.",
+    "tags": ["github", "random", "Trending"],
+    "screenshots": [],
+    "researchURL": "https://github.com/mainmatter/100-exercises-to-learn-rust"
   }
 ]
