@@ -9,7 +9,7 @@ function QRCode({ IdForURL }: props) {
   const { Canvas } = useQRCode()
   return (
     <Canvas
-      text={'http://localhost:3000/card/' + IdForURL}
+      text={IdForURL}
       options={{
         errorCorrectionLevel: 'M',
         margin: 3,

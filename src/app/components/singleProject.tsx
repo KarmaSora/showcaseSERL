@@ -4,13 +4,14 @@ import Image from 'next/image'
 import QRCode from './QRCode'
 
 interface SingleProjectProps {
+  id: string
+  date: string
   researchType: string
   title: string
   description: string
   tags: string[]
   screenshots: string[]
-  date: string
-  id: string
+  researchURL: string
 }
 
 function SingleProject({
@@ -21,6 +22,7 @@ function SingleProject({
   screenshots,
   date,
   id,
+  researchURL,
 }: SingleProjectProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
@@ -58,7 +60,7 @@ function SingleProject({
       )}
       {showQRCode ? (
         <div className='flex items-center justify-center bg-gray-100'>
-          <QRCode IdForURL={id} />{' '}
+          <QRCode IdForURL={researchURL} />{' '}
         </div>
       ) : null}
 

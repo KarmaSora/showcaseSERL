@@ -12,6 +12,7 @@ interface CardData {
   screenshots: string[]
   date: string
   id: string
+  researchURL: string
 }
 
 // Fetch all card data
@@ -65,6 +66,7 @@ export default async function SingleCardPage({
         screenshots={card.screenshots}
         researchType={card.researchType}
         date={card.date}
+        researchURL={card.researchURL}
       />
     </>
   )
