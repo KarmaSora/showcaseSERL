@@ -70,7 +70,14 @@ const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
     }
   }, [researchCards])
   if (loadingBool) {
-    return <h2>Loading...</h2> // Replace with a spinner or loading animation
+    return (
+      <>
+        <h2>Loading...</h2>{' '}
+        <div className='flex min-h-screen items-center justify-center'>
+          <div className='h-16 w-16 animate-spin rounded-full border-4 border-blue-500 border-t-transparent'></div>
+        </div>{' '}
+      </>
+    ) // Replace with a spinner or loading animation
   }
 
   return (
