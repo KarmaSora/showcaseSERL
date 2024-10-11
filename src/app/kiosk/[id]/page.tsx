@@ -2,6 +2,8 @@ import { promises as fs } from 'fs'
 import path from 'path'
 import KioskSingleProject from '../../components/KioskSingleProject'
 
+export const revalidate = 60 // Next.js will regenerate the page every 60 seconds
+
 interface Params {
   params: {
     id: string

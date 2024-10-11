@@ -15,6 +15,7 @@ interface ResearchDataToDisplay {
   screenshots: string[]
   researchURL: string
 }
+export const revalidate = 60 // Next.js will regenerate the page every 60 seconds
 
 function KioskPage({
   ResearchDataToDisplay,
