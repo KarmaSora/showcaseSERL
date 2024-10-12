@@ -2,7 +2,7 @@ import Naviagtion from './Navigtion'
 function Header() {
   return (
     <>
-      <header className='container mx-auto bg-[#faf3e0] bg-white p-4 shadow'>
+      <header className='container mx-auto bg-[#e8dcc0] p-4 shadow-lg'>
         <Naviagtion />
       </header>
     </>

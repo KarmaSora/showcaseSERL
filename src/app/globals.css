@@ -9,12 +9,13 @@ body {
   background-color: #faf3e0;
   /* Removed color and background to prevent overriding Tailwind styles */
 }
-
+header {
+  margin-bottom: 2rem;
+}
 nav {
   display: flex;
   justify-content: center;
   padding: 1rem 0;
-  background-color: #8b4513; /* Adjust to a warm brown to complement beige */
 }
 
 nav ul li {
