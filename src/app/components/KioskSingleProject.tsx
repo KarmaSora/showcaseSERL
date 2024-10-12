@@ -100,11 +100,63 @@ function KioskSingleProject({ data, currentId }: KioskSingleProjectProps) {
       : description
   }
 
+  // Handlers for navigation
+  const handlePrevious = () => {
+    const prevIndex = (currentIndex - 1 + data.length) % data.length
+    setCurrentIndex(prevIndex)
+    router.push(`/kiosk/${data[prevIndex].id}`)
+  }
+
+  const handleNext = () => {
+    const nextIndex = (currentIndex + 1) % data.length
+    setCurrentIndex(nextIndex)
+    router.push(`/kiosk/${data[nextIndex].id}`)
+  }
+
   return (
     <>
-      <Header />
+      {/* Header wrapped in a container for hover effect */}
+      <div
+        className='relative'
+        // The relative positioning is necessary for absolute positioning inside
+      >
+        <div
+          className='absolute left-0 top-0 w-full'
+          // Container to position the header absolutely
+        >
+          <div
+            className='opacity-0 transition-opacity duration-300 hover:opacity-100'
+            // Hide the header by default and show on hover
+          >
+            <Header />
+          </div>
+        </div>
+      </div>
+
       <div className='flex min-h-screen min-w-[700px] flex-col items-center justify-center bg-gray-100 p-4'>
-        <div className='flex min-h-[500px] w-full max-w-7xl flex-col overflow-hidden rounded-lg bg-white p-4 shadow-lg'>
+        <div
+          className='relative flex min-h-[500px] w-full max-w-4xl flex-col overflow-hidden rounded-lg bg-white p-4 shadow-lg'
+          // Container to handle hover effect for navigation controls
+        >
+          {/* Navigation Controls */}
+          <div
+            className='absolute inset-0 flex items-center justify-between opacity-0 transition-opacity duration-300 hover:opacity-100'
+            // The controls are hidden by default and appear on hover
+          >
+            <button
+              onClick={handlePrevious}
+              className='ml-2 rounded-full bg-gray-800 bg-opacity-50 p-2 text-white hover:bg-opacity-75'
+            >
+              &#8592; {/* Left Arrow */}
+            </button>
+            <button
+              onClick={handleNext}
+              className='mr-2 rounded-full bg-gray-800 bg-opacity-50 p-2 text-white hover:bg-opacity-75'
+            >
+              &#8594; {/* Right Arrow */}
+            </button>
+          </div>
+
           <div className='clearfix flex flex-1'>
             <div className='mr-4'>
               {imageSrc && imageSrc.trim() !== '' ? (

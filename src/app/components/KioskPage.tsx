@@ -69,7 +69,22 @@ function KioskPage({
   console.log(currentData.screenshots)
   return (
     <>
-      <Header />
+      <div
+        className='relative'
+        // The relative positioning is necessary for absolute positioning inside
+      >
+        <div
+          className='absolute left-0 top-0 w-full'
+          // Container to position the header absolutely
+        >
+          <div
+            className='opacity-0 transition-opacity duration-300 hover:opacity-100'
+            // Hide the header by default and show on hover
+          >
+            <Header />
+          </div>
+        </div>
+      </div>{' '}
       <div className='flex min-h-screen min-w-[700px] flex-col items-center justify-center bg-gray-100 p-4'>
         <div className='flex min-h-[600px] w-full max-w-6xl flex-col overflow-hidden rounded-lg bg-white p-4 shadow-lg'>
           <div className='clearfix flex flex-1'>
