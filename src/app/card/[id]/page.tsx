@@ -5,21 +5,35 @@ import Naviagtion from '@/app/components/Navigtion'
 import SingleProject from '../../components/singleProject'
 
 interface CardData {
+  id: string
+  date: string
   researchType: string
   title: string
   description: string
   tags: string[]
   screenshots: string[]
-  date: string
-  id: string
   researchURL: string
 }
 
-// Fetch all card data
+// Fetch all card data with default values
 async function getAllCards(): Promise<CardData[]> {
   const filePath = path.join(process.cwd(), 'data', 'research.json')
   const jsonData = await fs.readFile(filePath, 'utf-8')
-  return JSON.parse(jsonData)
+  let data: CardData[] = JSON.parse(jsonData)
+
+  // Map over the data to set default values
+  data = data.map((item, index) => ({
+    id: item.id || `generated-id-${index}`,
+    date: item.date || 'Unknown Date',
+    researchType: item.researchType || 'Unknown Type',
+    title: item.title || 'Untitled',
+    description: item.description || 'No description available.',
+    tags: item.tags || [],
+    screenshots: item.screenshots || [],
+    researchURL: item.researchURL || '#',
+  }))
+
+  return data
 }
 
 // Fetch a single card by its ID
@@ -29,15 +43,7 @@ async function getCardById(id: string): Promise<CardData | null> {
   return card || null
 }
 
-// Required for static exporting
-export async function generateStaticParams() {
-  const cards = await getAllCards()
-
-  // Generate static paths based on card IDs
-  return cards.map((card) => ({
-    id: card.id,
-  }))
-}
+// Remove generateStaticParams function
 
 export default async function SingleCardPage({
   params,

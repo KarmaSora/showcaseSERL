@@ -20,10 +20,21 @@ const kiosk = async () => {
 
   const fileContents = await fs.readFile(jsonFilePath, 'utf8')
 
-  const researchCardsTest: ResearchData[] = JSON.parse(fileContents) //convert json text to JS objekt
+  let researchCardsTest: ResearchData[] = JSON.parse(fileContents) //convert json text to JS objekt
 
   //const sizeOf = researchCardsTest.length
   //const lastIndex = sizeOf - 1
+  // Map over the data to set default values
+  researchCardsTest = researchCardsTest.map((item) => ({
+    id: item.id || 'N/A',
+    date: item.date || 'Unknown Date',
+    researchType: item.researchType || 'Unknown Type',
+    title: item.title || 'Untitled',
+    description: item.description || 'No description available.',
+    tags: item.tags || [],
+    screenshots: item.screenshots || [],
+    researchURL: item.researchURL || '#',
+  }))
 
   return (
     <div>
