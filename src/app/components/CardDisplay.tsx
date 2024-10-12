@@ -1,7 +1,6 @@
 'use client' // Client component
 
-import React from 'react'
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Card from './Card'
 
 interface ResearchData {
@@ -38,7 +37,7 @@ const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
 
   // First filter: Filter the Research cards based on cardResearchType (case-insensitive)
   const filteredByType = researchCards.filter((card) => {
-    if (selectedType === 'All' || '') return true // Show all cards if (All) is selected
+    if (selectedType === 'All' || selectedType === '') return true // Show all cards if 'All' is selected
     return card.researchType.toLowerCase() === selectedType.toLowerCase()
   })
 
@@ -55,7 +54,6 @@ const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
 
       return matchesTitleOrDescription || matchesTags
     })
-
     .sort((a, b) => {
       if (sortOrder === 'asc') {
         return new Date(a.date).getTime() - new Date(b.date).getTime() // Ascending order
@@ -69,58 +67,77 @@ const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
       setLoadingBoolState(false)
     }
   }, [researchCards])
+
   if (loadingBool) {
     return (
       <>
-        <h2>Loading...</h2>{' '}
+        <h2 className='text-center text-2xl font-semibold text-white'>
+          Loading...
+        </h2>
         <div className='flex min-h-screen items-center justify-center'>
           <div className='h-16 w-16 animate-spin rounded-full border-4 border-blue-500 border-t-transparent'></div>
-        </div>{' '}
+        </div>
       </>
     )
   }
 
   return (
-    <>
-      {/* Dropdown for filtering by cardResearchType */}
-      <section className='typeChangeSelection'>
-        <h1 className='readable'>types</h1>
-        <select value={selectedType} onChange={handleTypeChange}>
-          <option value='All'>All</option>
-          <option value='Student'>Student</option>
-          <option value='Researcher'>Researcher</option>
-          <option value='PhD'>PhD</option>
-        </select>
-      </section>
+    <div className='container mx-auto p-4'>
+      {/* Filters */}
+      <div className='mb-6 flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0'>
+        {/* Dropdown for filtering by researchType */}
+        <div className='flex items-center space-x-2'>
+          <label htmlFor='typeFilter' className='font-semibold text-white'>
+            Filter by Type:
+          </label>
+          <select
+            id='typeFilter'
+            value={selectedType}
+            onChange={handleTypeChange}
+            className='rounded border border-gray-600 bg-gray-700 p-2 text-white'
+          >
+            <option value='All'>All</option>
+            <option value='Student'>Student</option>
+            <option value='Researcher'>Researcher</option>
+            <option value='PhD'>PhD</option>
+          </select>
+        </div>
 
-      {/* Dropdown to select sort order */}
-      <section className='sortOrderSelection'>
-        <h1 className='readable'>time order</h1>
+        {/* Dropdown to select sort order */}
+        <div className='flex items-center space-x-2'>
+          <label htmlFor='sortOrder' className='font-semibold text-white'>
+            Sort by Date:
+          </label>
+          <select
+            id='sortOrder'
+            value={sortOrder}
+            onChange={handleSortOrderChange}
+            className='rounded border border-gray-600 bg-gray-700 p-2 text-white'
+          >
+            <option value='desc'>Newest First</option>
+            <option value='asc'>Oldest First</option>
+          </select>
+        </div>
 
-        <select
-          id='sortOrder'
-          value={sortOrder}
-          onChange={handleSortOrderChange}
-        >
-          <option value='desc'>Descending</option>
-          <option value='asc'>Ascending</option>
-        </select>
-      </section>
-      {/* Input field to type the filter text (title, description, tags) */}
-      <input
-        className='inputFilter'
-        type='text'
-        placeholder='Filter by title, description, or tags'
-        value={inputText}
-        onChange={handleInputChange}
-      />
-      <button>Filter</button>
+        {/* Input field for text filtering */}
+        <div className='flex w-full items-center space-x-2 md:w-auto'>
+          <input
+            className='w-full rounded border border-gray-600 bg-gray-700 p-2 text-white placeholder-gray-400 md:w-64'
+            type='text'
+            placeholder='Search by title, description, or tags'
+            value={inputText}
+            onChange={handleInputChange}
+          />
+        </div>
+      </div>
 
-      {/* Button to trigger the filtering */}
+      {/* Display filtered data length */}
+      <h2 className='mb-4 text-lg font-semibold text-gray-300'>
+        Number of results: {finalFilteredCards.length}
+      </h2>
+
       {/* Display final filtered research cards */}
-      {/* Display filtered data length, aka, card count */}
-      <h2>Number of filtered data found: {finalFilteredCards.length}</h2>
-      <div>
+      <div className='grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
         {finalFilteredCards.length > 0 ? (
           finalFilteredCards.map((card, index) => (
             <Card
@@ -135,10 +152,10 @@ const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
             />
           ))
         ) : (
-          <p>No results found</p>
+          <p className='text-center text-gray-500'>No results found</p>
         )}
       </div>
-    </>
+    </div>
   )
 }
 
