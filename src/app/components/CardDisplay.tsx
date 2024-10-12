@@ -82,12 +82,12 @@ const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
   }
 
   return (
-    <div className='container mx-auto p-4'>
+    <>
       {/* Filters */}
       <div className='mb-6 flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0'>
         {/* Dropdown for filtering by researchType */}
         <div className='flex items-center space-x-2'>
-          <label htmlFor='typeFilter' className='font-semibold text-white'>
+          <label htmlFor='typeFilter' className='font-semibold text-gray-800'>
             Filter by Type:
           </label>
           <select
@@ -105,7 +105,7 @@ const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
 
         {/* Dropdown to select sort order */}
         <div className='flex items-center space-x-2'>
-          <label htmlFor='sortOrder' className='font-semibold text-white'>
+          <label htmlFor='sortOrder' className='font-semibold text-gray-800'>
             Sort by Date:
           </label>
           <select
@@ -132,7 +132,7 @@ const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
       </div>
 
       {/* Display filtered data length */}
-      <h2 className='mb-4 text-lg font-semibold text-gray-300'>
+      <h2 className='mb-4 text-lg font-semibold text-gray-800'>
         Number of results: {finalFilteredCards.length}
       </h2>
 
@@ -155,7 +155,7 @@ const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
           <p className='text-center text-gray-500'>No results found</p>
         )}
       </div>
-    </div>
+    </>
   )
 }
 
