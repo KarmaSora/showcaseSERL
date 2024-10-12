@@ -71,6 +71,27 @@ function KioskPage({
     setvisableHeader(!visableHeader)
   }
 
+  const [loadingBool, setLoadingBoolState] = useState(true)
+
+  useEffect(() => {
+    if (ResearchDataToDisplay && ResearchDataToDisplay.length > 0) {
+      setLoadingBoolState(false)
+    }
+  }, [ResearchDataToDisplay])
+
+  if (loadingBool) {
+    return (
+      <>
+        <h2 className='text-center text-2xl font-semibold text-white'>
+          Loading...
+        </h2>
+        <div className='flex min-h-screen items-center justify-center'>
+          <div className='h-16 w-16 animate-spin rounded-full border-4 border-blue-500 border-t-transparent'></div>
+        </div>
+      </>
+    )
+  }
+
   return (
     <>
       <div>
