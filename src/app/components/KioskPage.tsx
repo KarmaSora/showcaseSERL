@@ -112,7 +112,7 @@ function KioskPage({
           {/* Render the header */}
           <Header />
         </div>
-        <div className='flex min-h-screen min-w-[700px] flex-col items-center justify-center bg-gray-100 p-4'>
+        <div className='flex min-h-screen min-w-[700px] flex-col items-center justify-center p-4'>
           <div className='flex min-h-[600px] w-full max-w-6xl flex-col overflow-hidden rounded-lg bg-white p-4 shadow-lg'>
             <div className='clearfix flex flex-1'>
               {/* Floating Image on the left */}

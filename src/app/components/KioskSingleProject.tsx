@@ -139,7 +139,7 @@ function KioskSingleProject({ data, currentId }: KioskSingleProjectProps) {
         <Header />
       </div>
 
-      <div className='flex min-h-screen min-w-[700px] flex-col items-center justify-center bg-gray-100 p-4'>
+      <div className='flex min-h-screen min-w-[700px] flex-col items-center justify-center p-4'>
         <div className=' flex min-h-[600px] w-full max-w-6xl flex-col overflow-hidden rounded-lg bg-white p-4 shadow-lg'>
           {/* Navigation Controls */}
           <div className='absolute inset-0 flex items-center justify-between opacity-0 transition-opacity duration-300 hover:opacity-100'>
