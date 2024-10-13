@@ -44,6 +44,11 @@ async function loadResearchData(): Promise<ResearchData[]> {
   return researchData
 }
 
+export async function generateStaticParams() {
+  const cards = await loadResearchData()
+  return cards.map((card) => ({ id: card.id }))
+}
+
 // Server Component
 async function kioskIDPage({ params }: Params) {
   const researchCardsTest = await loadResearchData()

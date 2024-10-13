@@ -43,7 +43,10 @@ async function getCardById(id: string): Promise<CardData | null> {
   return card || null
 }
 
-// Remove generateStaticParams function
+export async function generateStaticParams() {
+  const cards = await getAllCards()
+  return cards.map((card) => ({ id: card.id }))
+}
 
 export default async function SingleCardPage({
   params,
