@@ -109,7 +109,7 @@ function KioskPage({
             visableHeader ? 'max-h-screen' : 'max-h-0'
           }`}
         >
-          {/* Re  nder the header */}
+          {/* Render the header */}
           <Header />
         </div>
         <div className='flex min-h-screen min-w-[700px] flex-col items-center justify-center bg-gray-100 p-4'>

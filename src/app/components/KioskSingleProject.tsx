@@ -26,6 +26,10 @@ function KioskSingleProject({ data, currentId }: KioskSingleProjectProps) {
   const timeBetweenImageIteration = 3000 // Interval for images in milliseconds (3 seconds)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
+  const [visableHeader, setvisableHeader] = useState(false)
+  const toggleHeader = () => {
+    setvisableHeader(!visableHeader)
+  }
   // State to hold the currently displayed research item index
   const [currentIndex, setCurrentIndex] = useState<number>(() =>
     data.findIndex((item) => item.id === currentId)
@@ -117,33 +121,28 @@ function KioskSingleProject({ data, currentId }: KioskSingleProjectProps) {
   return (
     <>
       {/* Header wrapped in a container for hover effect */}
-      <div
-        className='relative'
-        // The relative positioning is necessary for absolute positioning inside
+      {/* Toggle button to show/hide header */}
+      <button
+        onClick={toggleHeader}
+        className='rounded bg-[#4a3f35] px-4 py-2 font-semibold text-white transition duration-200 ease-in-out hover:bg-[#8b4513]'
       >
-        <div
-          className='absolute left-0 top-0 w-full'
-          // Container to position the header absolutely
-        >
-          <div
-            className='opacity-0 transition-opacity duration-300 hover:opacity-100'
-            // Hide the header by default and show on hover
-          >
-            <Header />
-          </div>
-        </div>
+        ☰
+      </button>
+
+      {/* Smooth transition for showing and hiding the header */}
+      <div
+        className={`overflow-hidden transition-all duration-300 ${
+          visableHeader ? 'max-h-screen' : 'max-h-0'
+        }`}
+      >
+        {/* Render the header */}
+        <Header />
       </div>
 
       <div className='flex min-h-screen min-w-[700px] flex-col items-center justify-center bg-gray-100 p-4'>
-        <div
-          className='relative flex min-h-[500px] w-full max-w-4xl flex-col overflow-hidden rounded-lg bg-white p-4 shadow-lg'
-          // Container to handle hover effect for navigation controls
-        >
+        <div className=' flex min-h-[600px] w-full max-w-6xl flex-col overflow-hidden rounded-lg bg-white p-4 shadow-lg'>
           {/* Navigation Controls */}
-          <div
-            className='absolute inset-0 flex items-center justify-between opacity-0 transition-opacity duration-300 hover:opacity-100'
-            // The controls are hidden by default and appear on hover
-          >
+          <div className='absolute inset-0 flex items-center justify-between opacity-0 transition-opacity duration-300 hover:opacity-100'>
             <button
               onClick={handlePrevious}
               className='ml-2 rounded-full bg-gray-800 bg-opacity-50 p-2 text-white hover:bg-opacity-75'
