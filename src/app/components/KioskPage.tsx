@@ -94,86 +94,81 @@ function KioskPage({
 
   return (
     <>
-      <div>
-        {/* Toggle button to show/hide header */}
-        <button
-          onClick={toggleHeader}
-          className='rounded bg-[#4a3f35] px-4 py-2 font-semibold text-white transition duration-200 ease-in-out hover:bg-[#8b4513]'
-        >
-          ☰
-        </button>
+      <button
+        onClick={toggleHeader}
+        className='rounded bg-[#4a3f35] px-4 py-2 font-semibold text-white transition duration-200 ease-in-out hover:bg-[#8b4513]'
+      >
+        ☰
+      </button>
+      <div
+        className={`overflow-hidden transition-all duration-300 ${
+          visableHeader ? 'max-h-screen' : 'max-h-0'
+        }`}
+      >
+        {/* Render the header */}
+        <Header />
+      </div>
 
-        {/* Smooth transition for showing and hiding the header */}
-        <div
-          className={`overflow-hidden transition-all duration-300 ${
-            visableHeader ? 'max-h-screen' : 'max-h-0'
-          }`}
-        >
-          {/* Render the header */}
-          <Header />
-        </div>
-        <div className='flex min-h-screen min-w-[700px] flex-col items-center justify-center p-4'>
-          <div className='flex min-h-[600px] w-full max-w-6xl flex-col overflow-hidden rounded-lg bg-white p-4 shadow-lg'>
-            <div className='clearfix flex flex-1'>
-              {/* Floating Image on the left */}
-              <div className='mr-4'>
-                <Image
-                  src={imageSrc}
-                  priority={true}
-                  alt='Screenshot'
-                  width={300}
-                  height={200}
-                  className='h-[200px] w-[300px] rounded-lg object-contain shadow-md'
-                />
-                {/* QR Code Underneath the Image */}
-                <div className='scale-75'>
-                  <QRCode IdForURL={currentData.id} />
-                </div>
-                {isIterating ? (
-                  <button
-                    onClick={() => setIsIterating(false)}
-                    className='rounded-lg bg-red-500 px-4 py-2 text-white hover:bg-red-700'
-                  >
-                    Stop Iteration
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => setIsIterating(true)}
-                    className='rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-700'
-                  >
-                    Start Iteration
-                  </button>
-                )}
+      <div className='flex min-h-screen min-w-[700px] flex-col items-center justify-center p-4'>
+        <div className='flex min-h-[600px] w-full max-w-7xl flex-col overflow-hidden rounded-lg bg-white p-4 shadow-lg'>
+          <div className='clearfix flex flex-1'>
+            <div className='mr-4'>
+              <Image
+                src={imageSrc}
+                priority={true}
+                alt='Screenshot'
+                width={400}
+                height={300}
+                className='h-[300px] w-[400px] rounded-lg object-contain shadow-md'
+              />
+              {/* QR Code Underneath the Image */}
+              <div className='scale-75'>
+                <QRCode IdForURL={currentData.id} />
               </div>
-
-              {/* Description Text */}
-              <div className='flex-1 overflow-hidden'>
-                <h1 className='mb-2 truncate text-2xl font-bold text-gray-800'>
-                  {currentData.title}
-                </h1>
-                <p className='mb-4 text-sm text-gray-600'>
-                  {currentData.description.length > 1000
-                    ? currentData.description.substring(0, 2200) + '...'
-                    : currentData.description}
-                </p>
-              </div>
+              {isIterating ? (
+                <button
+                  onClick={() => setIsIterating(false)}
+                  className='rounded-lg bg-red-500 px-4 py-2 text-white hover:bg-red-700'
+                >
+                  Stop Iteration
+                </button>
+              ) : (
+                <button
+                  onClick={() => setIsIterating(true)}
+                  className='rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-700'
+                >
+                  Start Iteration
+                </button>
+              )}
             </div>
 
-            <div className='mt-4 flex w-full items-center justify-between border-t pt-4'>
-              <div className='text-sm text-gray-600'>
-                <strong>Date:</strong>{' '}
-                {new Date(currentData.date).toLocaleDateString()}
-              </div>
-              <div className='ml-4 flex flex-1 space-x-2 overflow-x-auto p-4'>
-                {currentData.tags.map((tag, index) => (
-                  <span
-                    key={index}
-                    className='rounded bg-blue-100 px-2 py-1 text-xs font-semibold text-blue-800'
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+            {/* Description Text */}
+            <div className='flex-1 overflow-hidden'>
+              <h1 className='mb-2 truncate text-2xl font-bold text-gray-800'>
+                {currentData.title}
+              </h1>
+              <p className='mb-4 text-sm text-gray-600'>
+                {currentData.description.length > 1000
+                  ? currentData.description.substring(0, 2200) + '...'
+                  : currentData.description}
+              </p>
+            </div>
+          </div>
+
+          <div className='mt-4 flex w-full items-center justify-between border-t pt-4'>
+            <div className='text-sm text-gray-600'>
+              <strong>Date:</strong>{' '}
+              {new Date(currentData.date).toLocaleDateString()}
+            </div>
+            <div className='ml-4 flex flex-1 space-x-2 overflow-x-auto p-4'>
+              {currentData.tags.map((tag, index) => (
+                <span
+                  key={index}
+                  className='rounded bg-blue-100 px-2 py-1 text-xs font-semibold text-blue-800'
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
           </div>
         </div>

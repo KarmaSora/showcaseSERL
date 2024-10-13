@@ -120,8 +120,6 @@ function KioskSingleProject({ data, currentId }: KioskSingleProjectProps) {
 
   return (
     <>
-      {/* Header wrapped in a container for hover effect */}
-      {/* Toggle button to show/hide header */}
       <button
         onClick={toggleHeader}
         className='rounded bg-[#4a3f35] px-4 py-2 font-semibold text-white transition duration-200 ease-in-out hover:bg-[#8b4513]'
@@ -140,7 +138,7 @@ function KioskSingleProject({ data, currentId }: KioskSingleProjectProps) {
       </div>
 
       <div className='flex min-h-screen min-w-[700px] flex-col items-center justify-center p-4'>
-        <div className=' flex min-h-[600px] w-full max-w-6xl flex-col overflow-hidden rounded-lg bg-white p-4 shadow-lg'>
+        <div className=' flex min-h-[600px] w-full max-w-7xl flex-col overflow-hidden rounded-lg bg-white p-4 shadow-lg'>
           {/* Navigation Controls */}
           <div className='absolute inset-0 flex items-center justify-between opacity-0 transition-opacity duration-300 hover:opacity-100'>
             <button
@@ -163,13 +161,13 @@ function KioskSingleProject({ data, currentId }: KioskSingleProjectProps) {
                 src={imageSrc}
                 alt='Screenshot'
                 priority={true}
-                width={300}
-                height={200}
-                className='h-[200px] w-[300px] rounded-lg object-contain shadow-md'
+                width={400}
+                height={300}
+                className='h-[300px] w-[400px] rounded-lg object-contain shadow-md'
               />
 
               <div className='scale-75'>
-                <QRCode IdForURL={currentData.id} />
+                <QRCode IdForURL={`card/${currentData.id}`} />
               </div>
             </div>
             <div className='flex-1 overflow-hidden'>

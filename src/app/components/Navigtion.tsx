@@ -4,7 +4,7 @@ import FullscreenButton from './fullscreen'
 function Naviagtion() {
   return (
     <>
-      <section className='bg-[#e8dcc0]'>
+      <section className='bg-[#e8dcc0] px-6'>
         <nav className='flex items-center justify-between py-4'>
           <ul className='flex space-x-8'>
             <li>
