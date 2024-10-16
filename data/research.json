@@ -1,4 +1,6 @@
 [
+  { "id": "somethingelse", "date": "yesterday", "title": "testin" },
+
   {
     "id": "1",
     "date": "2024-11-23",
@@ -60,6 +62,6 @@
     "researchURL": "https://github.com/mainmatter/100-exercises-to-learn-rust"
   },
 
-  {},
+  { "id": "something", "date": "yesterday" },
   {}
 ]
