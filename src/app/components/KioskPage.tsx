@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import QRCode from './QRCode'
 import Header from './Header'
+import FullscreenButton from './fullscreen'
 
 interface ResearchDataToDisplay {
   id: string
@@ -157,7 +158,7 @@ function KioskPage({
 
           <div className='mt-4 flex w-full items-center justify-between border-t pt-4'>
             <div className='text-sm text-gray-600'>
-              <strong>Date:</strong>{' '}
+              <strong>Date:</strong>
               {new Date(currentData.date).toLocaleDateString()}
             </div>
             <div className='ml-4 flex flex-1 space-x-2 overflow-x-auto p-4'>
@@ -169,6 +170,9 @@ function KioskPage({
                   {tag}
                 </span>
               ))}
+            </div>
+            <div>
+              <FullscreenButton />
             </div>
           </div>
         </div>

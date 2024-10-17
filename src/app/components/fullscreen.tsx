@@ -40,7 +40,7 @@ const FullscreenButton: React.FC = () => {
       onClick={toggleFullscreen}
       className='rounded bg-[#4a3f35] px-4 py-2 font-semibold text-white transition duration-200 ease-in-out hover:bg-[#8b4513]'
     >
-      Enter Fullscreen
+      ⛶
     </button>
   )
 }

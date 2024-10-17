@@ -83,9 +83,7 @@ const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
 
   return (
     <>
-      {/* Filters */}
       <div className='mb-6 flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0'>
-        {/* Dropdown for filtering by researchType */}
         <div className='flex items-center space-x-2'>
           <label htmlFor='typeFilter' className='font-semibold text-gray-800'>
             Filter by Type:
@@ -137,19 +135,20 @@ const CardDisplay = ({ researchCards }: { researchCards: ResearchData[] }) => {
       </h2>
 
       {/* Display final filtered research cards */}
-      <div className='grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
+      <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3'>
         {finalFilteredCards.length > 0 ? (
           finalFilteredCards.map((card, index) => (
-            <Card
-              key={index}
-              researchType={card.researchType}
-              title={card.title}
-              description={card.description}
-              tags={card.tags}
-              screenshots={card.screenshots}
-              date={card.date}
-              id={card.id}
-            />
+            <div key={index} className='flex justify-center'>
+              <Card
+                researchType={card.researchType}
+                title={card.title}
+                description={card.description}
+                tags={card.tags}
+                screenshots={card.screenshots}
+                date={card.date}
+                id={card.id}
+              />
+            </div>
           ))
         ) : (
           <p className='text-center text-gray-500'>No results found</p>

@@ -63,5 +63,26 @@
   },
 
   { "id": "something", "date": "yesterday" },
-  {}
+  {
+    "tags": [
+      "github",
+      "project",
+      "Trending",
+      "github",
+      "project",
+      "Trending",
+      "github",
+      "project",
+      "Trending",
+      "github",
+      "project",
+      "Trending",
+      "github",
+      "project",
+      "Trending",
+      "github",
+      "project",
+      "Trending"
+    ]
+  }
 ]
