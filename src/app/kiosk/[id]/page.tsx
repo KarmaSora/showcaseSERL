@@ -2,7 +2,7 @@ import { promises as fs } from 'fs'
 import path from 'path'
 import KioskSingleProject from '../../components/KioskSingleProject'
 import { notFound } from 'next/navigation'
-
+import crypto from 'crypto'
 export const revalidate = 60 // Next.js will regenerate the page every 60 seconds
 
 interface Params {
@@ -22,6 +22,12 @@ interface ResearchData {
   researchURL: string
 }
 
+function generateId(item: ResearchData): string {
+  const dataToHash = `${item.title}-${item.date}-${item.researchType}`
+  const hash = crypto.createHash('sha256').update(dataToHash).digest('hex')
+  return hash.substring(0, 16)
+}
+
 async function loadResearchData(): Promise<ResearchData[]> {
   const jsonFilePath = path.join(process.cwd(), 'data', 'research.json')
   const fileContents = await fs.readFile(jsonFilePath, 'utf8')
@@ -29,7 +35,7 @@ async function loadResearchData(): Promise<ResearchData[]> {
 
   // Map over the data to set default values
   researchData = researchData.map((item) => ({
-    id: item.id || 'N/A',
+    id: item.id || generateId(item),
     date: item.date || 'Unknown Date',
     researchType: item.researchType || 'Unknown Type',
     title: item.title || 'Untitled',
@@ -46,7 +52,7 @@ async function loadResearchData(): Promise<ResearchData[]> {
 
 export async function generateStaticParams() {
   const cards = await loadResearchData()
-  return cards.map((card) => ({ id: card.id }))
+  return cards.map((card) => ({ id: card.id || generateId(card) }))
 }
 
 // Server Component

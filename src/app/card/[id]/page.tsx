@@ -3,7 +3,7 @@ import fs from 'fs/promises'
 import { notFound } from 'next/navigation'
 import Naviagtion from '@/app/components/Navigtion'
 import SingleProject from '../../components/singleProject'
-
+import crypto from 'crypto'
 interface CardData {
   id: string
   date: string
@@ -15,6 +15,12 @@ interface CardData {
   researchURL: string
 }
 
+function generateId(item: CardData): string {
+  const dataToHash = `${item.title}-${item.date}-${item.researchType}`
+  const hash = crypto.createHash('sha256').update(dataToHash).digest('hex')
+  return hash.substring(0, 16)
+}
+
 // Fetch all card data with default values
 async function getAllCards(): Promise<CardData[]> {
   const filePath = path.join(process.cwd(), 'data', 'research.json')
@@ -22,8 +28,8 @@ async function getAllCards(): Promise<CardData[]> {
   let data: CardData[] = JSON.parse(jsonData)
 
   // Map over the data to set default values
-  data = data.map((item, index) => ({
-    id: item.id || `generated-id-${index}`,
+  data = data.map((item) => ({
+    id: item.id || generateId(item),
     date: item.date || 'Unknown Date',
     researchType: item.researchType || 'Unknown Type',
     title: item.title || 'Untitled',
@@ -45,7 +51,7 @@ async function getCardById(id: string): Promise<CardData | null> {
 
 export async function generateStaticParams() {
   const cards = await getAllCards()
-  return cards.map((card) => ({ id: card.id }))
+  return cards.map((card) => ({ id: card.id || generateId(card) }))
 }
 
 export default async function SingleCardPage({

@@ -1,5 +1,6 @@
 import { promises as fs } from 'fs'
 import path from 'path'
+import crypto from 'crypto'
 import CardDisplay from './CardDisplay'
 
 interface ResearchData {
@@ -15,6 +16,13 @@ interface ResearchData {
 
 export const revalidate = 60 // Next.js will regenerate the page every 60 seconds
 
+function generateId(item: ResearchData): string {
+  const dataToHash = `${item.title}-${item.date}-${item.researchType}`
+  const hash = crypto.createHash('sha256').update(dataToHash).digest('hex')
+
+  return hash.substring(0, 16)
+}
+
 const Container = async () => {
   const jsonFilePath = path.join(process.cwd(), 'data', 'research.json')
 
@@ -24,7 +32,7 @@ const Container = async () => {
 
   researchCardsTest = researchCardsTest.map((item) => {
     return {
-      id: item.id || 'N/A',
+      id: item.id || generateId(item),
       date: item.date || 'Unknown Date',
       researchType: item.researchType || 'Unknown Type',
       title: item.title || 'Untitled',

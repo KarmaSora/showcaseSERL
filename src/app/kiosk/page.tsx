@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs'
 import path from 'path'
 import KioskPage from '../components/KioskPage'
-
+import crypto from 'crypto'
 interface ResearchData {
   id: string
   date: string
@@ -11,6 +11,12 @@ interface ResearchData {
   tags: string[]
   screenshots: string[]
   researchURL: string
+}
+
+function generateId(item: ResearchData): string {
+  const dataToHash = `${item.title}-${item.date}-${item.researchType}`
+  const hash = crypto.createHash('sha256').update(dataToHash).digest('hex')
+  return hash.substring(0, 16)
 }
 
 export const revalidate = 60 // Next.js will regenerate the page every 60 seconds
@@ -25,8 +31,9 @@ const kiosk = async () => {
   //const sizeOf = researchCardsTest.length
   //const lastIndex = sizeOf - 1
   // Map over the data to set default values
+
   researchCardsTest = researchCardsTest.map((item) => ({
-    id: item.id || 'N/A',
+    id: item.id || generateId(item),
     date: item.date || 'Unknown Date',
     researchType: item.researchType || 'Unknown Type',
     title: item.title || 'Untitled',
