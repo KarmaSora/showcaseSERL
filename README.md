@@ -5,23 +5,27 @@ ShowcaseSERL is a Next.js 14+ platform designed to showcase student and research
 ## Introduction
 
 The project aims to provide an easy-to-use interface for presenting research work and projects interactively. Data is managed through JSON files, making it simple to update and manage project information without requiring a complex backend.
+![overviewpage image](image.png)
 
 ## Prerequisites
+
 Before you begin, ensure you have installed the following:
 Node.js: you may install from their official website https://nodejs.org/en/download/package-manager
 npm: usually comes with node
 
-If you are on linux/ubuntu, you may run this: 
-```bash 
+If you are on linux/ubuntu, you may run this:
+
+```bash
 sudo apt update
 sudo apt install nodejs npm
 ```
+
 To verivy if the installation went well try:
+
 ```bash
 node -v
 npm -v
 ```
-
 
 ## How to Use
 
