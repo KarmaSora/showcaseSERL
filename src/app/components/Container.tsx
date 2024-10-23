@@ -1,8 +1,7 @@
-// app/components/Container.tsx
-
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import crypto from 'crypto'
 import CardDisplay from './CardDisplay'
 
 interface ResearchData {
@@ -45,21 +44,20 @@ const Container = () => {
   }
 
   // Function to generate IDs
-  const generateId = (item: any): string => {
-    return `${item.title}-${item.date}-${item.researchType}`
-      .replace(/\s+/g, '-')
-      .toLowerCase()
+  function generateId(item: ResearchData): string {
+    const dataToHash = `${item.title}-${item.date}-${item.researchType}`
+    const hash = crypto.createHash('sha256').update(dataToHash).digest('hex')
+    return hash.substring(0, 16)
   }
 
   useEffect(() => {
-    fetchData() // Fetch data on initial render
-    const interval = setInterval(fetchData, 6000) // Fetch data every 6 seconds
-    return () => clearInterval(interval) // Cleanup on unmount
+    fetchData()
+    const interval = setInterval(fetchData, 60000) // Fetch data every 6 seconds
+    return () => clearInterval(interval)
   }, [])
 
   return (
     <div>
-      {/* Pass the researchCards to the client-side CardDisplay component */}
       <CardDisplay researchCards={researchCards} />
     </div>
   )

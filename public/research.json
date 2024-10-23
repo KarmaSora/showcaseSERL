@@ -5,7 +5,7 @@
     "id": "1",
     "date": "2024-11-23",
     "researchType": "PhD",
-    "title": "CreDIT MAKERNEW",
+    "title": "CreDIT MAKER",
     "description": "CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the CRediT website.CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the CRediT website.CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the CRediT website.CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the CRediT website.CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the CRediT website.CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the CRediT website.CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the CRediT website.CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the CRediT website.CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the CRediT website.CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the CRediT website.CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the CRediT website.CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the CRediT website.CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the CRediT website.CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the CRediT website.CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the CRediT website.CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the CRediT website.CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the CRediT website.CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the CRediT website.CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the CRediT website.CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the CRediT website.CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the CRediT website.CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the CRediT website.CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the CRediT website.CRedit Maker helps you to create CRediT (Contributor Roles Taxonomy) statements for your research papers. To learn more about CRediT, visit the CRediT website.",
     "tags": ["real", "project", "Andreas"],
     "screenshots": [
@@ -64,6 +64,7 @@
 
   { "id": "something", "date": "yesterday" },
   {
+    "id": "5sss",
     "tags": [
       "github",
       "project",
@@ -84,5 +85,6 @@
       "project",
       "Trending"
     ]
-  }
+  },
+  {}
 ]
