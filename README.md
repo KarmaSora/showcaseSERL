@@ -32,7 +32,7 @@ npm -v
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/showcaseSERL.git
+   git clone https://github.com/KarmaSora/showcaseSERL.git
    cd showcaseSERL
    ```
 
@@ -70,9 +70,10 @@ try to add a JSON object and wat to see if the page updates. If it does try sear
 
 To run the project in production mode after building:
 
-```bash
+`` `bash
 npm run start
-```
+
+````
 
 ## Required JSON Structure
 
@@ -100,7 +101,7 @@ The data for the projects is managed via a JSON file. Each object in the JSON fi
   "screenshots": [],
   "researchURL": "https://github.com/mainmatter/100-exercises-to-learn-rust"
 }
-```
+````
 
 Note: you may change the time interval between research itteration in /kiosk by editing the "chosenTimerForPageIteration" veriable in kisokPage.tsx. the value is set to 6000 ms by default.
 
