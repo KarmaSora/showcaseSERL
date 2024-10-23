@@ -29,7 +29,7 @@ function generateId(item: ResearchData): string {
 }
 
 async function loadResearchData(): Promise<ResearchData[]> {
-  const jsonFilePath = path.join(process.cwd(), 'data', 'research.json')
+  const jsonFilePath = path.join(process.cwd(), 'public', 'research.json')
   const fileContents = await fs.readFile(jsonFilePath, 'utf8')
   let researchData: ResearchData[] = JSON.parse(fileContents)
 

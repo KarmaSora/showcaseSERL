@@ -23,7 +23,7 @@ function generateId(item: CardData): string {
 
 // Fetch all card data with default values
 async function getAllCards(): Promise<CardData[]> {
-  const filePath = path.join(process.cwd(), 'data', 'research.json')
+  const filePath = path.join(process.cwd(), 'public', 'research.json')
   const jsonData = await fs.readFile(filePath, 'utf-8')
   let data: CardData[] = JSON.parse(jsonData)
 

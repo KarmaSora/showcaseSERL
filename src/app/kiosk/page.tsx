@@ -22,7 +22,7 @@ function generateId(item: ResearchData): string {
 export const revalidate = 60 // Next.js will regenerate the page every 60 seconds
 
 const kiosk = async () => {
-  const jsonFilePath = path.join(process.cwd(), 'data', 'research.json')
+  const jsonFilePath = path.join(process.cwd(), 'public', 'research.json')
 
   const fileContents = await fs.readFile(jsonFilePath, 'utf8')
 
