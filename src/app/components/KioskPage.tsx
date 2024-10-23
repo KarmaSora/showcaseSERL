@@ -126,21 +126,6 @@ function KioskPage({
               <div className='scale-75'>
                 <QRCode IdForURL={currentData.id} />
               </div>
-              {isIterating ? (
-                <button
-                  onClick={() => setIsIterating(false)}
-                  className='rounded-lg bg-red-500 px-4 py-2 text-white hover:bg-red-700'
-                >
-                  Stop Iteration
-                </button>
-              ) : (
-                <button
-                  onClick={() => setIsIterating(true)}
-                  className='rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-700'
-                >
-                  Start Iteration
-                </button>
-              )}
             </div>
 
             {/* Description Text */}
@@ -171,7 +156,22 @@ function KioskPage({
                 </span>
               ))}
             </div>
-            <div>
+            <div className='group relative inline-block'>
+              {isIterating ? (
+                <button
+                  onClick={() => setIsIterating(false)}
+                  className='rounded bg-[#4a3f35] text-black opacity-0 transition-opacity duration-300 group-hover:opacity-100 '
+                >
+                  Stop Iteration
+                </button>
+              ) : (
+                <button
+                  onClick={() => setIsIterating(true)}
+                  className='rounded-lg bg-blue-500 px-4  text-white hover:bg-blue-700'
+                >
+                  Start Iteration
+                </button>
+              )}
               <FullscreenButton />
             </div>
           </div>
