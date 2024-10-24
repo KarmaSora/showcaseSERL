@@ -53,14 +53,14 @@ function SingleProject({
       {!showQRCode ? (
         <button
           onClick={() => setShowQRCode(true)}
-          className='rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-700'
+          className='mr-2 rounded-lg bg-blue-500 px-2 py-2 text-white hover:bg-blue-700'
         >
           Show QR Code
         </button>
       ) : (
         <button
           onClick={() => setShowQRCode(false)}
-          className='rounded-lg bg-red-500 px-4 py-2 text-white hover:bg-red-700'
+          className=' ml-2 rounded-lg bg-red-500 px-4 py-2 text-white hover:bg-red-700'
         >
           Hide QR Code
         </button>
@@ -85,25 +85,28 @@ function SingleProject({
           />
           <button
             onClick={handlePrevImage}
-            className='absolute left-0 top-1/2 -translate-y-1/2 transform rounded-full bg-gray-800 px-3 py-1 text-white hover:bg-gray-600'
+            className='absolute left-0 my-6 transform rounded-full bg-gray-800 px-3 py-1 text-white hover:bg-gray-600'
           >
             ← Prev
           </button>
           <button
             onClick={handleNextImage}
-            className='absolute right-0 top-1/2 -translate-y-1/2 transform rounded-full bg-gray-800 px-3 py-1 text-white hover:bg-gray-600'
+            className='absolute right-0 my-6 transform rounded-full bg-gray-800 px-3 py-1 text-white hover:bg-gray-600'
           >
             Next →
           </button>
         </div>
       )}
 
-      <div className='space-y-4'>
+      <div className='my-20 space-y-4'>
         <h1 className='text-3xl font-bold text-gray-900'>
           Project Title: {title}
         </h1>
         <p className='text-lg text-gray-700'>{description}</p>
         <div className='flex items-center justify-between text-sm text-gray-500'>
+          <a className='font-bold text-blue-900' href={`${researchURL}`}>
+            github
+          </a>
           <span className='italic'>Research Type: {researchType}</span>
           <span>{date}</span>
         </div>

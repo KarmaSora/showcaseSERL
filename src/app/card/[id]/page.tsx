@@ -27,8 +27,7 @@ async function getAllCards(): Promise<CardData[]> {
   const jsonData = await fs.readFile(filePath, 'utf-8')
   let data: CardData[] = JSON.parse(jsonData)
 
-  // Map over the data to set default values
-  data = data.map((item: any) => ({
+  data = data.map((item: CardData) => ({
     id: item.id || generateId(item),
     date: item.date || 'Unknown Date',
     researchType: item.researchType || 'Unknown Type',
@@ -44,7 +43,6 @@ async function getAllCards(): Promise<CardData[]> {
   return data
 }
 
-// Fetch a single card by its ID
 async function getCardById(id: string): Promise<CardData | null> {
   const data = await getAllCards()
   const card = data.find((card) => card.id === id)
@@ -54,7 +52,6 @@ async function getCardById(id: string): Promise<CardData | null> {
 export async function generateStaticParams() {
   const cards = await getAllCards()
 
-  // Filter cards with valid or generated ids
   const validCards = cards
     .map((card) => ({
       id: card.id || generateId(card), // Generate ID if missing
@@ -71,7 +68,6 @@ export default async function SingleCardPage({
 }) {
   const { id } = params
 
-  // Fetch the card data by id
   const card = await getCardById(id)
 
   // If card is not found, show the 404 page
@@ -79,7 +75,6 @@ export default async function SingleCardPage({
     notFound()
   }
 
-  // Render the card component with the fetched data
   return (
     <>
       <Naviagtion />

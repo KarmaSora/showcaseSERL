@@ -106,7 +106,6 @@ function KioskPage({
           visableHeader ? 'max-h-screen' : 'max-h-0'
         }`}
       >
-        {/* Render the header */}
         <Header />
       </div>
 

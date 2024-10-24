@@ -23,7 +23,6 @@ const Container = () => {
       const response = await fetch('/research.json')
       let data = await response.json()
 
-      // Process data as needed
       data = data.map((item: any) => ({
         id: item.id || generateId(item),
         date: item.date || 'Unknown Date',
@@ -43,7 +42,6 @@ const Container = () => {
     }
   }
 
-  // Function to generate IDs
   function generateId(item: ResearchData): string {
     const dataToHash = `${item.title}-${item.date}-${item.researchType}`
     const hash = crypto.createHash('sha256').update(dataToHash).digest('hex')
