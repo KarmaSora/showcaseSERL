@@ -68,6 +68,9 @@ function SingleProject({
       {showQRCode ? (
         <div className='flex items-center justify-center bg-gray-100'>
           <QRCode IdForURL={researchURL} />
+          <a className='font-bold text-blue-900' href={`${researchURL}`}>
+            github
+          </a>
         </div>
       ) : null}
 
@@ -104,9 +107,6 @@ function SingleProject({
         </h1>
         <p className='text-lg text-gray-700'>{description}</p>
         <div className='flex items-center justify-between text-sm text-gray-500'>
-          <a className='font-bold text-blue-900' href={`${researchURL}`}>
-            github
-          </a>
           <span className='italic'>Research Type: {researchType}</span>
           <span>{date}</span>
         </div>

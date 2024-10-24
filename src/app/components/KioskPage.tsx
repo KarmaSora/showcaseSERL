@@ -42,7 +42,7 @@ function KioskPage({
       )
     }, chosenTimerForPageIteration)
 
-    return () => clearInterval(interval) // Clean up interval on unmount
+    return () => clearInterval(interval)
   }, [isIterating, ResearchDataToDisplay.length])
 
   const currentData = ResearchDataToDisplay[currentIndex]
@@ -57,7 +57,7 @@ function KioskPage({
       )
     }, chosenTimerForPageIteration / currentData.screenshots.length)
 
-    return () => clearInterval(imageInterval) // Clean up interval on unmount
+    return () => clearInterval(imageInterval)
   }, [isIterating, currentIndex, currentData.screenshots.length])
 
   const imageSrc =
@@ -121,13 +121,11 @@ function KioskPage({
                 height={300}
                 className='h-[300px] w-[400px] rounded-lg object-contain shadow-md'
               />
-              {/* QR Code Underneath the Image */}
               <div className='scale-75'>
                 <QRCode IdForURL={currentData.id} />
               </div>
             </div>
 
-            {/* Description Text */}
             <div className='flex-1 overflow-hidden'>
               <h1 className='mb-2 truncate text-2xl font-bold text-gray-800'>
                 {currentData.title}

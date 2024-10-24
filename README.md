@@ -10,8 +10,8 @@ The project aims to provide an easy-to-use interface for presenting research wor
 ## Prerequisites
 
 Before you begin, ensure you have installed the following:
-Node.js: you may install from their official website https://nodejs.org/en/download/package-manager
-npm: usually comes with node
+Node.js:(using v20.11.0) you may install from their official website https://nodejs.org/en/download/package-manager
+npm: (v10.8.3) usually comes with node
 
 If you are on linux/ubuntu, you may run this:
 

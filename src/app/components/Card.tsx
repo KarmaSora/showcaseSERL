@@ -41,7 +41,6 @@ function Card({
         Project Type: {researchType}
       </div>
 
-      {/* Image */}
       <div className='mb-4 h-[150px]'>
         <Image
           src={imageSrc}
@@ -53,18 +52,14 @@ function Card({
         />
       </div>
 
-      {/* Title */}
       <h1 className='mb-2 text-lg font-bold text-gray-800'>{title}</h1>
 
-      {/* Description */}
       <p className='card-description mb-4 h-[100px] overflow-hidden text-ellipsis text-gray-600'>
         {trimmedDescription}
       </p>
 
-      {/* Date */}
       <p className='mb-4 text-xs text-gray-500'>Date: {date}</p>
 
-      {/* Tags */}
       <div className='mb-4 max-w-full overflow-x-auto p-4'>
         <ul className='flex flex-nowrap space-x-2'>
           {tags.map((tag, index) => (
@@ -78,7 +73,6 @@ function Card({
         </ul>
       </div>
 
-      {/* Link */}
       <Link
         href={`/card/${id}`}
         className='mt-auto font-medium text-blue-600 hover:underline'
