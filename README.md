@@ -27,6 +27,8 @@ node -v
 npm -v
 ```
 
+if you plan on cloning the repo, make sure to have git installed
+
 ## How to Use
 
 1. Clone the repository:

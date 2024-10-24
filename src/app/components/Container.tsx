@@ -1,9 +1,11 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import crypto from 'crypto'
 import CardDisplay from './CardDisplay'
 
+const secondsToRefresh = 6
+const datarefresh = secondsToRefresh * 1000 // 60 seconds
 interface ResearchData {
   id: string
   researchType: string
@@ -18,12 +20,12 @@ interface ResearchData {
 const Container = () => {
   const [researchCards, setResearchCards] = useState<ResearchData[]>([])
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const response = await fetch('/research.json')
       let data = await response.json()
 
-      data = data.map((item: any) => ({
+      data = data.map((item: ResearchData) => ({
         id: item.id || generateId(item),
         date: item.date || 'Unknown Date',
         researchType: item.researchType || 'Unknown Type',
@@ -40,7 +42,7 @@ const Container = () => {
     } catch (error) {
       console.error('Error fetching data:', error)
     }
-  }
+  }, []) // <-- useCallback dependency
 
   function generateId(item: ResearchData): string {
     const dataToHash = `${item.title}-${item.date}-${item.researchType}`
@@ -49,10 +51,11 @@ const Container = () => {
   }
 
   useEffect(() => {
-    fetchData()
-    const interval = setInterval(fetchData, 60000) // Fetch data every 6 seconds
-    return () => clearInterval(interval)
-  }, [])
+    fetchData() // Fetch data on mount
+    const interval = setInterval(fetchData, datarefresh) // Fetch data every 60 seconds
+
+    return () => clearInterval(interval) // Cleanup interval on unmount
+  }, [fetchData]) // fetchData is now memoized
 
   return (
     <div>
