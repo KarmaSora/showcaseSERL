@@ -1,9 +1,10 @@
 import path from 'path'
 import fs from 'fs/promises'
 import { notFound } from 'next/navigation'
-import Naviagtion from '@/app/components/Navigtion'
 import SingleProject from '../../components/singleProject'
 import crypto from 'crypto'
+import Header from '@/app/components/Header'
+import Footer from '@/app/components/Footer'
 interface CardData {
   id: string
   date: string
@@ -77,7 +78,7 @@ export default async function SingleCardPage({
 
   return (
     <>
-      <Naviagtion />
+      <Header />
       <SingleProject
         id={card.id}
         title={card.title}
@@ -88,6 +89,7 @@ export default async function SingleCardPage({
         date={card.date}
         researchURL={card.researchURL}
       />
+      <Footer />
     </>
   )
 }
