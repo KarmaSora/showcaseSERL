@@ -30,36 +30,35 @@
     "id": "3",
     "date": "2024-01-23",
     "researchType": "Student",
-    "title": "pokemonAutoChess ",
-    "description": "Game files are ready, now you need to configure two things: the database (MongoDB), and the authentication provider (Firebase).Pokemon Auto Chess use mongoDB to store its data and Firebase for authentication. Those 2 dependencies requires credentials to use. Credentials will be stored in a .env file in the root folder of the repository. If you do not have a .env file in your root repository, make one now and open it in notepad.MongoDBYou can either setup the mongo database using the cloud based MongoDB Atlas or using the local installation.In both cases, create a database named dev with an empty collection named botv2. Then retrieve the URI connection.If you are using MongoDB Cloud, you may need to create an admin user under Database Access > Create a New User. Make sure to Add Built-in Role > Atlas admin.A cloud uri will look like smth mongodb+srv://admin:<password>@<cluster>.mongodb.net/dev?retryWrites=true&w=majority.The local uri will look smth like mongodb://localhost:27017/dev.In order to play against bots, you will need to load bots data into your newly created database. In MongoDB Compass, import bots data (./db-commmands/botv2.json) in the botV2 empty collection.In the .env file at the root folder, add the mongoDB URI:MONGO_URI=mongodb://localhost:27017/devFirebasePokemon Auto Chess uses the Firebase authentication module to let players create accounts and login to the game.First create an account and a firebase project at https://console.firebase.google.com/.Inside the firebase project, create a web app called for example pokemon-auto-chess-test.",
+    "title": "showcaseSERL ",
+    "description": " ShowcaseSERL: Make student projects visible. It is a Next.js 14+ platform designed to showcase student and researcher-developed projects. It provides dynamic project listing, detailed views, and kiosk mode functionality for a user-friendly display on various devices.",
     "tags": ["github", "project", "Trending"],
     "screenshots": [
-      "https://camo.githubusercontent.com/b98b88cc2b3c29faab8071b3b7fec718329c1c148ef899171c14877e87cc385c/68747470733a2f2f696e6c616e672e636f6d2f62616467653f75726c3d6769746875622e636f6d2f6b656c6461616e436f6d6d756e6974792f706f6b656d6f6e4175746f4368657373"
+      "https://github.com/KarmaSora/showcaseSERL/raw/main/image.png"
     ],
-    "researchURL": "https://github.com/hcengineering/platform"
+    "researchURL": "https://github.com/KarmaSora/showcaseSERL"
   },
   {
     "id": "4",
     "date": "2024-10-30",
     "researchType": "PhD",
-    "title": "rejoinderoo ",
+    "title": "GameDesign",
     "description": "Rejoinderoo creates a rejoinder (response to reviewers) LaTeX document based on a CSV file. An example of a generated rejoinder document is shown in example.pdf. rerequisitesFirst, ensure that you have a working Python 3 environment installed.Rejoinderoo depends on Pick to provide the selection interface for data fields of the CSV file. Install the dependencies using the requirements.txt file.pip3 install -r requirements.txtUsageStep 1) Prepare the response to reviewers in a spreadsheet and export it as a CSV file, like the input.csv.At least three columns are required to be able to parse the CSV file. Have a look at as an example ofStep 2) Run main.py with two arguments: the input CSV file and the output file name.# show helppython3 main.py -h# usagepython3 main.py input.csv output.texStep 3)Select all fields (columns) from the CSV file that shall be included in the generated document.$ python3 main.pySelect at least three fields (ID, reviewer comment, author response)(x) ID(x) Comment* (x) Response( ) Action( ) Where( ) Status( ) ResponsibleColor coding of responsesThe response boxes are color-coded based on the ID field, which is the first selected field. To determine different reviewers, the prefix of the ID field value is used until the first delimiter (., -, or :). E.g., Rev1.3 becomes Rev1 and R1:3 becomes R1.In the next step, a custom LaTeX color is created for each reviewer that can be adjusted.colorlet{colorRev1}{blue!15!white}CustomizationTo customize the generated LaTeX file, you can either adjust template.tex or replace it with your own file. The script will replace the placeholder %%%%%custom-command%%%%% and %%%%%ccomments%%%%% in the template.tex file with the generated content.LicenseCopyright © 2023-2024 Andreas BauerThis work (source code) is licensed under MIT.",
-    "tags": ["github", "project", "Trending"],
+    "tags": ["github", "project", "Trending","Unity", "Game"],
     "screenshots": [
-      "https://github.com/andreas-bauer/rejoinderoo/raw/main/images/logo.png",
-      "https://github.com/andreas-bauer/rejoinderoo/raw/main/images/screenshot.png"
+      "https://github.com/KarmaSora/GameDesign/raw/main/images/Thumbnail.png"
     ],
-    "researchURL": "https://github.com/hcengineering/platform"
+    "researchURL": "https://github.com/KarmaSora/GameDesign"
   },
   {
     "id": "20",
     "date": "2024-10-30",
     "researchType": "Student",
-    "title": "100-exercises-to-learn-rust  ",
+    "title": "SpaceInvaders  ",
     "description": "Learn Rust, one exercise at a timeYou've heard about Rust, but you never had the chance to try it out?This course is for you!You'll learn Rust by solving 100 exercises.You'll go from knowing nothing about Rust to being able to start writing your own programs, one exercise at a time.NoteThis course has been written by Mainmatter.It's one of the trainings in our portfolio of Rust workshops.Check out our landing page if you're looking for Rust consulting or training!Getting startedGo to rust-exercises.com and follow the instructions there to get started with the course.RequirementsRust (follow instructions here).If rustup is already installed on your system, run rustup update (or another appropriate command depending on how you installed Rust on your system) to make sure you're running on the latest stable version.(Optional but recommended) An IDE with Rust autocompletion support. We recommend one of the following:RustRover;Visual Studio Code with the rust-analyzer extension.SolutionsYou can find the solutions to the exercises in the solutions branch of this repository.LicenseCopyright © 2024- Mainmatter GmbH (https://mainmatter.com), released under the Creative Commons Attribution-NonCommercial 4.0 International license.",
-    "tags": ["github", "random", "Trending"],
-    "screenshots": [],
-    "researchURL": "https://github.com/mainmatter/100-exercises-to-learn-rust"
+    "tags": ["github", "random", "Trending", "Game", "Team Project","SFML"],
+    "screenshots": ["https://github.com/KarmaSora/spaceInvadersBTH/raw/master/CodePC/Images/GameThumbnail.png"],
+    "researchURL": "https://github.com/KarmaSora/spaceInvadersBTH?tab=readme-ov-file"
   },
 
   { "id": "something", "date": "yesterday" },
