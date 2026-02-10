@@ -4,8 +4,12 @@ const nextBasePath = process.env.NEXT_BASE_PATH || ''
 const nextConfig = {
   output: 'export',
   basePath: nextBasePath,
+  assetPrefix: nextBasePath || undefined,
   images: {
     unoptimized: true,
+  },
+  env: {
+    NEXT_PUBLIC_BASE_PATH: nextBasePath,
   },
 }
 

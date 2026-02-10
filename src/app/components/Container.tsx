@@ -19,10 +19,11 @@ interface ResearchData {
 
 const Container = () => {
   const [researchCards, setResearchCards] = useState<ResearchData[]>([])
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await fetch('/research.json')
+      const response = await fetch(`${basePath}/research.json`)
       let data = await response.json()
 
       data = data.map((item: ResearchData) => ({
